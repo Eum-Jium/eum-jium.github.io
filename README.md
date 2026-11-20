@@ -7,3 +7,5 @@
 - `privacy/` — 앱 공통 개인정보처리방침(`privacy/index.html`)과 지원 페이지(`privacy/support/`).
   주소는 `https://eum-jium.github.io/privacy/` 그대로다. 2026-10-18 에 따로 있던 `Eum-Jium/privacy`
   프로젝트 페이지를 이력째 이 저장소로 옮기고 그 리포는 지웠다. 앱스토어·플레이 콘솔 링크는 바뀌지 않는다.
+- `AI-seminar/` — 2026-12-06 꿈이있는교회 특강 「AI : 존재인가 도구인가?」 발표 화면. 주소는 `https://eum-jium.github.io/AI-seminar/`.
+  `config.js` 의 `prefill`·`sheet` 두 줄을 채우면 청중 휴대폰이 발표 화면을 따라오고 답을 보낼 수 있다. 비워 두면 혼자 넘기는 화면으로만 열린다.

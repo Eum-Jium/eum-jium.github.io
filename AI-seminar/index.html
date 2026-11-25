@@ -315,6 +315,8 @@ html[data-mode="audience"] .shoot{display:none}
 #hud button{font-size:14px;padding:8px 12px;border-radius:8px;border:1px solid var(--c-line);background:var(--c-card);color:var(--c-ink);font-variant-numeric:tabular-nums}
 #panel{position:fixed;top:0;right:0;bottom:0;width:min(clamp(400px,30vw,600px),94vw);z-index:40;background:var(--c-bg);border-left:1px solid var(--c-line);color:var(--c-ink);padding:22px 22px calc(22px + env(safe-area-inset-bottom,0px));box-sizing:border-box;overflow:auto;display:flex;flex-direction:column;gap:18px;font-size:clamp(15px,1.05vw,20px);line-height:1.5;box-shadow:-20px 0 60px rgba(0,0,0,.45);color-scheme:dark}
 #panel h3{margin:0;font-size:1.2em}
+#panel .phead{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--c-bg);margin:-22px -22px -6px;padding:calc(16px + env(safe-area-inset-top,0px)) 22px 12px;border-bottom:1px solid var(--c-line)}
+#panel #panelClose{font-size:1em;font-weight:700;padding:10px 16px;min-height:44px;background:var(--c-acc);border-color:var(--c-acc);color:var(--c-on)}
 #panel h3 small,#panel label small{font-weight:400;color:var(--c-soft);font-size:.85em;margin-left:6px}
 #panel section{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--c-line);padding-top:14px}
 #panel label{font-size:.85em;color:var(--c-acc);font-weight:700}
@@ -887,7 +889,7 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
   <button id="fsBtn">전체화면 F</button>
 </div>
 <aside id="panel" hidden aria-label="발표자 조작">
-  <h3>발표자 조작<small>P 또는 Esc로 닫기</small></h3>
+  <div class="phead"><h3>발표자 조작<small>P 또는 Esc로도 닫혀요</small></h3><button id="panelClose" type="button" aria-label="발표자 조작 닫기">닫기 ✕</button></div>
   <section><label for="manIn">지금 이 장에 직접 넣기</label><div class="prow"><input id="manIn" autocomplete="off"><button class="pri" id="manAdd">넣기</button><button id="manUndo">되돌리기</button></div><p id="manHint"></p></section>
   <section id="slotSec" hidden><label>이 장에 넣을 그림·영상<small>이 노트북에만 저장됩니다</small></label><div id="slotRows" style="display:flex;flex-direction:column;gap:8px"></div></section>
   <section><label for="actualIn">실제 키<small>2쪽에서 두 번째 클릭에 공개</small></label><div class="prow"><input id="actualIn" type="number" inputmode="decimal" placeholder="미리 넣어 두기"><span>cm</span></div></section>
@@ -1337,7 +1339,7 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
   }
   function togglePanel(force){const p=$('panel'),open=force!=null?force:p.hidden;p.hidden=!open;document.documentElement.classList.toggle('panel-open',open);
     if(open){panelSync();if(askNow())$('manIn').focus()}else if(document.activeElement&&p.contains(document.activeElement))document.activeElement.blur()}
-  $('panelBtn').onclick=()=>togglePanel();
+  $('panelBtn').onclick=()=>togglePanel();$('panelClose').onclick=()=>togglePanel(false);
   function addManual(){const a=askNow(),raw=$('manIn').value.trim();if(!a||!raw){$('manIn').focus();return}
     let v;if(a.k==='ud'){const n=parseInt(raw,10);v=n>=1&&n<=100?{r:ud.off+ud.rounds.length+1,v:n}:null}else if(a.k==='prompt'){const x=raw.replace(/\s+/g,' ').slice(0,120);v=x?{r:cardRound(),t:x}:null}else v=clean(a.k,raw);
     if(v!=null){manual[a.k].push(v);manLog.push(a.k);$('manIn').value='';drawAll()}$('manIn').focus()}

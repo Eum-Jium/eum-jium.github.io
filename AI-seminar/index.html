@@ -69,11 +69,12 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 #s-cover h1{position:absolute;left:128px;top:138px;font-family:var(--serif);font-weight:800;font-size:176px;line-height:1.17;letter-spacing:-.025em;color:var(--ink)}
 #s-cover .by{position:absolute;left:128px;top:764px;font-size:36px;line-height:1.6;font-weight:500;color:var(--dawn)}
 #s-cover .dock.big{position:absolute;left:1380px;top:752px}
-#s-end{padding:0}
-#s-end .sky{background:var(--paper)}
-#s-end .sea{background:var(--deep)}
-#s-end .sun{top:646px;background:var(--accent);box-shadow:0 0 150px 60px rgba(243,190,106,.28)}
-#s-end .say{position:absolute;left:128px;top:170px;right:128px;display:flex;flex-direction:column;gap:26px}
+/* the last page: one painting on a dark wall, nothing written. He speaks. */
+#s-end{padding:0;background:var(--deep);align-items:center;justify-content:center}
+#s-end figure{margin:0;position:relative}
+#s-end img{display:block;height:1032px;width:auto;max-width:none;box-shadow:0 30px 90px rgba(0,0,0,.5)}
+#s-end figcaption{position:absolute;left:calc(100% + 40px);bottom:0;width:360px;font-size:23px;line-height:1.55;color:var(--soft)}
+#s-end figcaption b{font-weight:600;color:var(--ink)}
 
 /* asking the room */
 .dock.sm{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;font-size:24px;color:var(--soft);font-variant-numeric:tabular-nums;border:1.5px solid var(--line);border-radius:999px;padding:8px 20px 8px 16px;white-space:nowrap}
@@ -149,7 +150,7 @@ html[data-mode="audience"] .slot>:not(.aud-only){display:none}
 .brace::after{content:"";position:absolute;left:50%;top:100%;width:4px;height:30px;margin-left:-2px;background:var(--ink)}
 #s-lang .four b{opacity:.42}
 #s-lang .four .f.on b{opacity:1;color:var(--accent)}
-#s-lang:not([data-at="0"]) .four b{opacity:1}
+#s-lang[data-at="3"] .four b{opacity:1}
 .flow{height:64px;position:absolute;left:0;right:0;top:154px}
 .flow svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 
@@ -167,6 +168,10 @@ html[data-mode="audience"] .slot>:not(.aud-only){display:none}
 .kept>div:first-child{border-left:0;padding-left:0}
 .kept small{font-size:24px;color:var(--soft)}
 .kept b{font-family:var(--serif);font-weight:700;font-size:42px;line-height:1.3}
+.kept.big{border-top-width:4px}
+.kept.big>div{padding-top:18px;gap:6px}
+.kept.big small{font-size:28px}
+.kept.big b{font-weight:800;font-size:48px}
 .filmq{display:flex;flex-direction:column;gap:10px;border-left:4px solid var(--accent);padding-left:32px}
 .filmq .en{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:36px;line-height:1.45;color:var(--ink)}
 .filmq .ko{font-size:30px;line-height:1.5;color:var(--soft)}
@@ -285,10 +290,13 @@ html[data-mode="audience"] .shoot{display:none}
 .pyr circle{fill:var(--soft);transition:transform 1.4s cubic-bezier(.3,.1,.3,1),opacity 1.4s ease,fill .6s ease}
 .pyr circle.top{fill:var(--accent)}
 #s-sand[data-at="2"] .pyr circle,#s-sand[data-at="3"] .pyr circle{transform:translate(var(--dx),var(--dy));opacity:var(--op)}
-#s-sand[data-at="3"] .pyr circle.leaf{fill:var(--accent);opacity:1;animation:leaf 7.5s ease-in-out 1s forwards}
-/* the last leaf lets go: it swings from side to side, hanging a moment at each turn, and settles on the heap */
+/* in the same click as the collapse: the one grain left at the top turns to a leaf while the rest run down, lets go as the heap settles,
+   swings from side to side, hanging a moment at each turn, and comes to rest on the heap. The next click only brings the sentence. */
+#s-sand[data-at="2"] .pyr circle.leaf,#s-sand[data-at="3"] .pyr circle.leaf{fill:var(--accent);opacity:1;transition-delay:0s,0s,.3s;animation:leaf 7.5s ease-in-out .9s forwards}
+/* arriving on this page with the castle already down (coming back from the next page, a phone joining late): the leaf is already lying there */
+#s-sand[data-arr="2"] .pyr circle.leaf,#s-sand[data-arr="3"] .pyr circle.leaf{animation-duration:1ms;animation-delay:0s}
 @keyframes leaf{0%{transform:translate(0,0)}11%{transform:translate(48px,30px)}24%{transform:translate(-42px,82px)}38%{transform:translate(40px,138px)}52%{transform:translate(-34px,192px)}66%{transform:translate(28px,244px)}80%{transform:translate(-20px,290px)}92%{transform:translate(9px,332px)}100%{transform:translate(0,346px)}}
-#s-sand:not([data-at="3"]) .pyr circle.top{fill:var(--soft)}
+#s-sand[data-at="0"] .pyr circle.top,#s-sand[data-at="1"] .pyr circle.top{fill:var(--soft)}
 #s-last .pyr circle.top,#s-last .pyr circle.last{fill:var(--soft)}
 #s-last[data-at="0"] .pyr circle.top{fill:var(--accent)}
 #s-last[data-at="1"] .pyr circle.last{fill:var(--accent)}
@@ -300,6 +308,15 @@ html[data-mode="audience"] .shoot{display:none}
 #stair .dash{stroke-dasharray:4 18;stroke:var(--accent)}
 #stair text{font-family:var(--serif);font-weight:800;font-size:46px;fill:var(--ink)}
 #stair text.q{fill:var(--accent)}
+#stair .par{font-family:var(--sans);font-weight:500;font-size:32px;fill:var(--soft)}
+/* the page that opens each part: a breath. The sun stands on the day's arc — morning, noon, evening */
+.slide.part{justify-content:flex-end;gap:6px;padding-bottom:268px}
+.part .pn{font-family:var(--serif);font-weight:800;font-size:60px;line-height:1.2;color:var(--accent)}
+.part .t-state{font-size:118px;line-height:1.22}
+.part .arc{position:absolute;inset:0;width:100%;height:100%}
+.part .arc .path{fill:none;stroke:var(--soft);stroke-width:4;stroke-dasharray:1 18;stroke-linecap:round}
+.part .arc .hz{fill:none;stroke:var(--ink);stroke-width:4}
+.part .arc .sun{fill:var(--accent)}
 /* 24 Luke 10, turn by turn */
 .turns{display:flex;flex-direction:column;gap:24px}
 .turn{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:baseline;transition:opacity .6s ease}
@@ -393,7 +410,16 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   <div class="dock big" role="button" tabindex="0" hidden aria-label="QR 코드 크게 보기"><img class="qrimg" alt="이 발표를 휴대폰에 여는 QR 코드"></div>
 </section>
 
-<!-- 2 키 맞히기 -->
+<!-- 2 간지 1부 -->
+<section class="slide part" id="s-part1" data-look="dawn" data-note="간지. 한숨 끊고 간다. 1부 — AI가 뭔지.
+오른쪽의 해는 하루의 길 위에 있다. 1부는 아침, 2부는 한낮, 3부는 저녁이다.
+(11월 26일에 네가 ‘1부 2부 3부를 나누는 간지가 필요해, 그래야 한숨 끊고 가지’라고 해서 넣었다.)">
+  <svg class="arc" viewBox="0 0 1920 1080" aria-hidden="true"><path class="path" d="M952 840Q1372 -60 1792 840"/><path class="hz" d="M128 840H1792"/><circle class="sun" cx="1092" cy="590" r="62"/></svg>
+  <p class="pn">1부</p>
+  <h2 class="t-state">AI가 뭔지</h2>
+</section>
+
+<!-- 3 키 맞히기 -->
 <section class="slide" id="s-height" data-look="dawn" data-part="1부  AI가 뭔지" style="gap:20px;padding-top:92px" data-note="한 사람을 앞으로 모신다(미리 동의. 실제 키는 P 창에 미리 넣어 둔다). 청중은 휴대폰에 숫자만 적는다. 휴대폰 없이 할 땐 P 창에서 들리는 대로 넣는다.
 처음엔 점만 떨어진다. 다 모이면 —
 클릭 1 — 평균. 클릭 2 — 실제 키.
@@ -411,7 +437,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   </div>
 </section>
 
-<!-- 3 낱말 맞히기 -->
+<!-- 4 낱말 맞히기 -->
 <section class="slide" id="s-words" data-look="dawn" data-part="1부  AI가 뭔지" data-note="처음 — ‘AI는 평균을 찾아간다.’ 방금 여러분이 한 일이 AI가 하는 일.
 클릭 1 — ‘저 오늘 ___’. 각자 떠오르는 말을 휴대폰에 적는다. 답은 아직 안 뜨고 도착한 수만 올라간다.
 클릭 2 — 이 방이 쓴 말이 많은 순서로 뜬다. 가장 많은 말이 빈칸에 들어간다.
@@ -420,7 +446,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 클릭 5 — 정답 공개: 소연 「퇴사할게여」 공식 뮤직비디오 15초. (몇 초부터 틀지는 P 창에서 정한다. 영상 안을 눌렀다면 영상 바깥을 한 번 눌러야 키보드가 돌아온다.)
 클릭 6 — ‘제 답은요’. 회현의 영상 ‘휴직할게여’. (영상 파일은 P 창에서 넣는다. 이 노트북에만 저장된다.)
 클릭 7 — ‘방금 영상은 AI가 만들었습니다.’
-※ ‘AI는 평균을 찾아간다’와 ‘LLM은 낱말에 대한 대답의 평균이다’는 이전 판(16쪽짜리)에 있던 네 문장이다. 새로 지을 때 빠지는 바람에 4쪽의 ‘낱말 맞히는 기계’가 갑자기 나왔다. 그래서 되살렸다. 빼려던 것이면 말해 줘.
+※ ‘AI는 평균을 찾아간다’와 ‘LLM은 낱말에 대한 대답의 평균이다’는 이전 판(16쪽짜리)에 있던 네 문장이다. 새로 지을 때 빠지는 바람에 {s-ask}쪽의 ‘낱말 맞히는 기계’가 갑자기 나왔다. 그래서 되살렸다. 빼려던 것이면 말해 줘.
 ※ ‘부장님, 저 오늘’은 Claude가 만든 앞말이다. 노래의 실제 앞말을 듣고 바꿀지 정한다. ‘빈칸에 무슨 말이 올까요?’도 Claude가 붙인 말.">
   <div class="scene center" data-until="1"><h2 class="t-state">AI는 평균을 찾아간다.</h2></div>
   <div class="scene" data-from="1" data-until="4">
@@ -454,19 +480,19 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   </div>
 </section>
 
-<!-- 4 물음 -->
+<!-- 5 물음 -->
 <section class="slide center" id="s-ask" data-look="dawn" data-part="1부  AI가 뭔지" data-note="물음만 띄운다.
 이어서 말로: ‘그 답을 찾기 위해 우리는 이 낱말이라는 것이 무엇인지, 언어라는 게 무엇인지 잠깐 생각해볼 필요가 있습니다.’
-답은 9쪽에서 돌아온다.">
+답은 {s-video}쪽에서 돌아온다.">
   <h2 class="t-state">어떻게 낱말 맞히는 기계가<br>영상까지 만들 수 있는 걸까?</h2>
 </section>
 
-<!-- 5 넷 -->
+<!-- 6 넷 -->
 <section class="slide" id="s-four" data-look="dawn" data-part="1부  AI가 뭔지" style="gap:0" data-note="사람이 동물보다 유독 뛰어난 것 넷: 손재주, 말, 그림, 음악.
 네 가지가 동물에게 없는 게 아니다. 네 가지가 모두 있지만 사람이 뛰어나다는 것.
 클릭 1 — 동물의 예가 하나씩 뜬다.
 ※ 동물 예시 네 줄과 아래 한 줄은 Claude가 붙인 받침이다. 필요 없으면 말해 줘, 뺄게. (침팬지의 도구, 버빗원숭이의 경고음, 정원사새의 정자 꾸미기, 혹등고래의 노래)
-네 낱말은 7쪽까지 같은 자리에 그대로 있고, 9쪽에서 다시 나온다. 아래 문장만 바뀐다.">
+네 낱말은 {s-sci}쪽까지 같은 자리에 그대로 있고, {s-lang}쪽에서 다시 나온다. 아래 문장만 바뀐다.">
   <div class="zone">
     <div class="four">
       <div class="f"><b>손재주</b><small data-step="1">침팬지도 나뭇가지를 다듬어 도구로 쓴다</small></div>
@@ -481,7 +507,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   </div>
 </section>
 
-<!-- 6 지능 -->
+<!-- 7 지능 -->
 <section class="slide" id="s-iq" data-look="dawn" data-part="1부  AI가 뭔지" style="gap:0" data-note="이 네 가지를 우리는 보통 지능이라고 부른다.
 (가드너의 다중지능 받침 줄은 11월 26일에 뺐다. 넷과 딱 맞지 않아 오히려 헷갈린다.)">
   <div class="zone">
@@ -498,7 +524,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   </div>
 </section>
 
-<!-- 7 연구 -->
+<!-- 8 연구 -->
 <section class="slide" id="s-sci" data-look="dawn" data-part="1부  AI가 뭔지" style="gap:0" data-note="과학자들은 이 네 가지를 기계가 할 수 있게 하려고 연구해왔다.
 클릭 1 — 네 분야가 시작된 해.
 ※ 연도 네 줄은 Claude가 붙인 받침이다. 넷 다 1950~60년대에 시작됐다는 것만 말하면 된다.
@@ -517,12 +543,12 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   </div>
 </section>
 
-<!-- 8 오디세이: 왜 말인가 -->
+<!-- 9 오디세이: 왜 말인가 -->
 <section class="slide" id="s-record" data-look="glaze" data-part="1부  AI가 뭔지" style="padding:0" data-note="넷 가운데 왜 말인가. 오디세이 예고편으로 연다.
 클릭 1 — 예고편이 이 장 안에서 소리와 함께 재생된다(깃허브 주소로 열었을 때. Claude 안에서는 버튼이 유튜브를 새 창으로 연다). 끝까지 본다. 영상 안을 눌렀다면 영상 바깥을 한 번 눌러야 키보드가 돌아온다.
 클릭 2 — 영화의 마지막 대사. 큰 뜻을 싣지 않는다. 요점은 ‘남긴다는 행위’.
 클릭 3 — 글로 쓰든 노래로 남기든, 사람은 남겼다.
-클릭 4 — 인간이 동물보다 뛰어난 건, 문명을 이룩하기 전부터였다. (5·6쪽의 넷은 문명 이전 이야기다.)
+클릭 4 — 인간이 동물보다 뛰어난 건, 문명을 이룩하기 전부터였다. ({s-four}·{s-iq}쪽의 넷은 문명 이전 이야기다.)
 클릭 5 — 인간이 문명을 이룩한 건, 대화를 더 기억하기 위해 기록을 남겼기 때문이다. (더 파고들어 설명하지 않는다.)
 클릭 6 — 말을 남기는 데 나머지 셋이 쓰였다. 노래로 외우고, 그림은 글자가 되고, 손으로 새겼다.
 그래서 넷 가운데 말이다. 다음 장에서 AI로 돌아온다.
@@ -553,14 +579,13 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   <div class="meander"></div>
 </section>
 
-<!-- 9 1부의 맺음: 언어가 풀리자 -->
-<section class="slide" id="s-lang" data-look="dawn" data-part="1부  AI가 뭔지" style="gap:0" data-note="1부의 맺음. 다시 네 낱말. ‘말’만 짙게 떠 있다.
+<!-- 10 언어가 풀리자 -->
+<section class="slide" id="s-lang" data-look="dawn" data-part="1부  AI가 뭔지" style="gap:0" data-note="다시 네 낱말. ‘말’만 짙게 떠 있다. 말이 풀리자 왜 나머지 셋도 풀리는지를 한 줄씩 밟는다.
 처음 — AI가 평균적으로 맞추고 있는 것이 바로 그 기록을 통해 배운 대화다.
-클릭 1 — 언어가 풀리고 나니, 나머지 셋이 폭발적으로 발전하고 있다. 말에서 나머지 셋으로 선이 간다.
-클릭 2 — 그래서, 영상까지 만든다. (4쪽 물음의 답)
-클릭 3 — AI는 이제 문명사회를 이룩하게 한 인간 지능의 핵심을 따라 하게 되었다.
-이 장을 띄워 둔 채 질의응답. 장도 카드도 없다. 생각이 식을 때까지 서로 묻고 답한다.
-말로 덧붙일 수 있는 것(Claude의 문장): 말을 알아듣게 되니, 말로 그림을 시키고 음악을 시키고 손을 시킬 수 있게 됐다.">
+클릭 1 — 그런데 사람이 남긴 기록은 글만이 아니다. 그림에도, 노래에도, 영상에도 말이 붙어 있다. 제목, 설명, 가사, 자막.
+클릭 2 — 그래서 기계는 말과 함께 그림을 배우고, 말과 함께 소리를 배웠다. (말로 설명해도 된다: 그래서 말로 시키면 그림이 나온다. 말로 그림을 시키고, 음악을 시키고, 손을 시킨다.)
+클릭 3 — 언어가 풀리고 나니, 나머지 셋이 폭발적으로 발전하고 있다. 말에서 나머지 셋으로 선이 간다.
+※ 11월 26일에 ‘그래서, 영상까지 만든다가 너무 빠르다, 그 쪽을 더 잘 설명해서 두 쪽으로’라고 해서 이 쪽과 다음 쪽으로 나눴다. 클릭 1과 2의 문장은 Claude가 썼다. 처음과 클릭 3은 네 문장이다.">
   <div class="zone">
     <div class="four">
       <div class="f"><b>손재주</b></div>
@@ -568,17 +593,46 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
       <div class="f"><b>그림</b></div>
       <div class="f"><b>음악</b></div>
     </div>
-    <div class="flow" data-step="1"><svg viewBox="0 0 1664 64" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="var(--accent)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><path d="M150 14V46H1400V14M984 46V14M496 6V46"/><path d="M136 28 150 12 164 28M970 28 984 12 998 28M1386 28 1400 12 1414 28"/></g><circle cx="496" cy="46" r="10" fill="var(--accent)"/></svg></div>
+    <div class="flow" data-step="3"><svg viewBox="0 0 1664 64" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="var(--accent)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><path d="M150 14V46H1400V14M984 46V14M496 6V46"/><path d="M136 28 150 12 164 28M970 28 984 12 998 28M1386 28 1400 12 1414 28"/></g><circle cx="496" cy="46" r="10" fill="var(--accent)"/></svg></div>
   </div>
   <div class="col grow stmt" style="gap:22px;padding-top:26px">
     <p class="t-line s">AI가 평균적으로 맞추고 있는 것이 바로 그 기록을 통해 배운 대화다.</p>
-    <p class="t-line" data-step="1">언어가 풀리고 나니, 나머지 셋이 폭발적으로 발전하고 있다.</p>
-    <p class="t-line acc" data-step="2">그래서, 영상까지 만든다.</p>
-    <h2 class="t-line b" data-step="3">AI는 이제 문명사회를 이룩하게 한<br>인간 지능의 핵심을 따라 하게 되었다.</h2>
+    <p class="t-line s" data-step="1">그런데 사람이 남긴 기록은 글만이 아니다. 그림에도, 노래에도, 영상에도 말이 붙어 있다. <span class="soft" style="font-family:var(--sans);font-weight:500;font-size:34px">제목, 설명, 가사, 자막.</span></p>
+    <p class="t-line s" data-step="2">그래서 기계는 말과 함께 그림을 배우고, 말과 함께 소리를 배웠다.</p>
+    <h2 class="t-line b" data-step="3">언어가 풀리고 나니, 나머지 셋이<br>폭발적으로 발전하고 있다.</h2>
   </div>
 </section>
 
-<!-- 10 활 -->
+<!-- 11 1부의 맺음: 그래서 영상까지 -->
+<section class="slide" id="s-video" data-look="dawn" data-part="1부  AI가 뭔지" style="gap:30px" data-note="1부의 맺음. {s-ask}쪽의 물음이 돌아온다.
+처음 — 물음: 어떻게 낱말 맞히는 기계가 영상까지 만들 수 있는 걸까?
+클릭 1 — 맞히는 것만 바뀌었다. {s-words}쪽에서 우리는 가려 놓은 낱말을 맞혔다. 기계는 같은 식으로, 흐려 놓은 그림에서 원래 그림을 맞히고, 이어질 소리를 맞히는 연습을 한다.
+클릭 2 — 영상은 그림과 소리를 이어 놓은 것이다. 그래서, 영상까지 만든다.
+클릭 3 — AI는 이제 문명사회를 이룩하게 한 인간 지능의 핵심을 따라 하게 되었다.
+이 장을 띄워 둔 채 질의응답. 장도 카드도 없다. 생각이 식을 때까지 서로 묻고 답한다.
+※ 클릭 1의 세 칸과 ‘맞히는 것만 바뀌었다’, ‘영상은 그림과 소리를 이어 놓은 것이다’는 Claude가 썼다. ‘그래서, 영상까지 만든다’와 마지막 문장은 네 문장이다.
+(받침: 그림을 만드는 AI는 그림에 잡음을 섞어 흐려 놓고 원래 그림을 되찾는 연습으로 배운다. 그림마다 붙어 있는 설명 글과 함께 배워서, 글로 시키면 그 그림을 맞혀 낸다.)">
+  <p class="t-lead">어떻게 낱말 맞히는 기계가 영상까지 만들 수 있는 걸까?</p>
+  <div class="col" data-step="1" style="gap:16px">
+    <div class="kept big"><div><small>말</small><b>가려 놓은 낱말을 맞힌다</b></div><div><small>그림</small><b>흐려 놓은 그림을 맞힌다</b></div><div><small>소리</small><b>이어질 소리를 맞힌다</b></div></div>
+    <p class="t-lead" style="color:var(--ink)">맞히는 것만 바뀌었다.</p>
+  </div>
+  <div class="col" data-step="2" style="gap:6px;margin-top:10px">
+    <p class="t-line">영상은 그림과 소리를 이어 놓은 것이다.</p>
+    <p class="t-state acc">그래서, 영상까지 만든다.</p>
+  </div>
+  <h2 class="t-line b" data-step="3" style="margin-top:auto">AI는 이제 문명사회를 이룩하게 한<br>인간 지능의 핵심을 따라 하게 되었다.</h2>
+</section>
+
+<!-- 12 간지 2부 -->
+<section class="slide part" id="s-part2" data-look="gold" data-note="간지. 질의응답이 끝나면 이 장으로 넘긴다. 2부 — AI를 어떻게 잘 쓸까.
+2부 전체 흐름은 ‘내 활을 만들어 가는 과정’이다.">
+  <svg class="arc" viewBox="0 0 1920 1080" aria-hidden="true"><path class="path" d="M952 840Q1372 -60 1792 840"/><path class="hz" d="M128 840H1792"/><circle class="sun" cx="1372" cy="390" r="62"/></svg>
+  <p class="pn">2부</p>
+  <h2 class="t-state">AI를 어떻게<br>잘 쓸까</h2>
+</section>
+
+<!-- 13 활 -->
 <section class="slide" id="s-bow" data-look="glaze" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:18px" data-note="2부를 여는 장. 다시 오디세이 — 활에 줄 거는 장면.
 2부 전체 흐름은 ‘내 활을 만들어 가는 과정’이다.
 클릭 1 — 줄이 걸린다. 아무도 줄을 걸지 못한 활. 그 활의 주인이 거지 차림으로 돌아와 줄을 건다.
@@ -604,7 +658,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   <div class="meander"></div>
 </section>
 
-<!-- 11 업다운 -->
+<!-- 14 업다운 -->
 <section class="slide" id="s-updown" data-look="gold" data-part="2부  AI를 어떻게 잘 쓸까" data-note="‘우리는 한 발에 못 맞힌다.’
 클릭 1 — 업다운 숫자 맞히기. 숫자는 P 창에 미리 정해 둔다(1~100. 비워 두면 컴퓨터가 고르고 P 창에만 보여 준다).
 한 판: 청중이 휴대폰에 숫자를 넣는다 → 점이 줄 위에 떨어진다 → 다 모이면 →(다음)를 누른다 → 이 방의 평균이 ‘이 방의 답’으로 뜨고, 업인지 다운인지가 뜬다 → 곧바로 다음 판이 열린다. 벗어난 쪽은 흐려진다.
@@ -620,7 +674,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   </div>
 </section>
 
-<!-- 12 뉴턴-랩슨 -->
+<!-- 15 뉴턴-랩슨 -->
 <section class="slide" id="s-newton" data-look="gold" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:26px" data-note="다리 문장: ‘업다운은 위, 아래만 듣습니다. 얼마나까지 들으면 훨씬 빨리 갑니다.’
 클릭 1 — 대충 찍는다. 첫 화살은 멀리 맞는다.
 클릭 2 — 빗나간 만큼 고친다. 점선이 ‘빗나간 만큼’이다.
@@ -642,7 +696,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   </div>
 </section>
 
-<!-- 13 두 가지 -->
+<!-- 16 두 가지 -->
 <section class="slide" id="s-two" data-look="gold" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:44px" data-note="AI를 기본적으로 잘 사용하려면 두 가지가 있어야 한다. 하나는 정확한 목표, 둘은 업다운을 끝까지 하는 것.
 클릭 1 — 정확한 목표. 클릭 2 — 업다운을 끝까지.
 클릭 3 — 맞장구 한 문장. 깊이 들어가지 않는다.
@@ -660,13 +714,13 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   </div>
 </section>
 
-<!-- 14 실습: 성탄 카드 -->
+<!-- 17 실습: 성탄 카드 -->
 <section class="slide" id="s-card" data-look="gold" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:20px" data-note="실습. 성탄 카드 한 장을 청중의 말로 쓴다. Claude에는 네가 직접 친다. 이 장은 청중의 말을 받아서 보여 주는 데까지만 한다.
 처음 — 안내.
 클릭 1 — 받는 판. 청중이 휴대폰에 Claude에게 시킬 말을 적어 보내면 오른쪽에 모인다.
 하나를 누르면(또는 숫자 키 1~9) 그 말이 왼쪽에 ‘1발’로 올라간다. 붙여 넣을 수 있게 복사도 해 둔다. 이제 Claude 창으로 넘어가서 그 말을 치고, 나온 카드를 같이 본다.
 하나를 고르는 순간 휴대폰에는 다음 칸이 열린다. 이번엔 ‘카드를 보고, 고칠 말’을 받는다. 이 장으로 돌아오면 오른쪽에 새로 모여 있다. 다시 하나를 고른다. 될 때까지.
-보여 줄 것: 첫 발은 누구에게나 보낼 수 있는 카드가 나온다(평균). 빗나간 만큼 말해 주면 가까워진다(13쪽의 두 가지). 왼쪽에 쌓인 말들이 곧 업다운의 기록이다.
+보여 줄 것: 첫 발은 누구에게나 보낼 수 있는 카드가 나온다(평균). 빗나간 만큼 말해 주면 가까워진다({s-two}쪽의 두 가지). 왼쪽에 쌓인 말들이 곧 업다운의 기록이다.
 받는 사람과 있었던 일을 넣으라는 말이 하나 나오면 좋다. 안 나오면 ‘이 사람과 있었던 일을 하나 넣어 볼까요’ 하고 청해도 된다. 다음 쪽이 거기서 시작한다.
 잘못 골랐으면 P 창의 ‘한 발 되돌리기’. 처음부터 다시는 ‘카드 처음부터’. 네 말을 직접 올리려면 P 창 맨 위 칸에 적는다.
 화면에 올리기 어려운 말이 와도 고르지 않으면 그만이다. 다만 오른쪽 목록에는 그대로 보인다.
@@ -691,7 +745,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   </div>
 </section>
 
-<!-- 15 기억 -->
+<!-- 18 기억 -->
 <section class="slide" id="s-memory" data-look="gold" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:26px" data-note="실습에서 본 것을 말로 정리하는 자리. 카드를 처음 시켰을 때 Claude는 받을 사람을 몰랐다. 우리가 말해 준 만큼만 알았다.
 여기서 1부와 잇는다. 대화, 기록, 기억 가운데 AI에게 없는 것은 기억이다.
 클릭 1 — 셋 아래에 한 줄씩. ‘기억’은 속이 빈 글자가 된다.
@@ -699,8 +753,8 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 (엽서를 P 창에서 넣어 두었으면 여기서 한 번 더 누를 때 엽서가 뜬다. 안 넣었으면 이 클릭은 저절로 건너뛴다.)
 그다음 — 좋은 기억이 AI를 잘 쓰는 방법이다.
 그다음 — 그래서 나는 멤트레일을 만들었다. 한마디로만. 시스템 설명은 하지 않는다.
-3부로 넘어가는 다리(말로): ‘방금 AI를 기억장치로 쓰라고 했습니다. 그런데 그걸 쓰면 안 되는 곳이 있습니다. 시험장입니다.’
-※ 11월 25일에 ‘14쪽이 뜬금없다’고 해서 이 쪽을 실습 뒤로 옮기고, 맨 위 한 줄(‘Claude는 카드를 받을 사람을 모른다.’)을 넣었다. 그 줄과 셋 아래 작은 줄(AI가 한다 / AI가 읽었다 / AI에게 없다)은 Claude가 붙인 것이다.">
+다음은 3부 간지다. 다리 말(‘방금 AI를 기억장치로 쓰라고 했습니다 … 시험장입니다’)은 간지를 띄워 놓고 한다.
+※ 11월 25일에 이 쪽(그때는 14쪽)이 뜬금없다고 해서 이 쪽을 실습 뒤로 옮기고, 맨 위 한 줄(‘Claude는 카드를 받을 사람을 모른다.’)을 넣었다. 그 줄과 셋 아래 작은 줄(AI가 한다 / AI가 읽었다 / AI에게 없다)은 Claude가 붙인 것이다.">
   <h2 class="t-title">Claude는 카드를 받을 사람을 모른다.</h2>
   <div class="three-w">
     <div><b>대화</b><small data-step="1">AI가 한다</small></div>
@@ -717,7 +771,15 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   </div>
 </section>
 
-<!-- 16 수능 21번 -->
+<!-- 19 간지 3부 -->
+<section class="slide part" id="s-part3" data-look="wine" data-note="간지. 3부 — 그 내가 누구에게 가는지.
+이 장을 띄워 놓고 다리 말을 한다: ‘방금 AI를 기억장치로 쓰라고 했습니다. 그런데 그걸 쓰면 안 되는 곳이 있습니다. 시험장입니다.’ 그리고 다음 장(수능 21번)으로 넘긴다.">
+  <svg class="arc" viewBox="0 0 1920 1080" aria-hidden="true"><path class="path" d="M952 840Q1372 -60 1792 840"/><path class="hz" d="M128 840H1792"/><circle class="sun" cx="1652" cy="590" r="62"/></svg>
+  <p class="pn">3부</p>
+  <h2 class="t-state">그 내가<br>누구에게 가는지</h2>
+</section>
+
+<!-- 20 수능 21번 -->
 <section class="slide" id="s-exam" data-look="wine" data-part="3부  그 내가 누구에게 가는지" data-note="3부를 여는 장. 올해 수능 수학 공통 21번을 같이 풀어 본다.
 문제 이미지는 P 창에서 넣는다. 이 노트북에만 저장되고 공개 주소에는 올라가지 않는다(휴대폰에는 ‘앞 화면을 봐 주세요’만 뜬다). 종이로 나눠 줘도 된다.
 클릭 1 — 오답률 한 줄.
@@ -732,7 +794,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   </div>
 </section>
 
-<!-- 17 작은 카메라, 기사 -->
+<!-- 21 작은 카메라, 기사 -->
 <section class="slide" id="s-news" data-look="wine" data-part="3부  그 내가 누구에게 가는지" style="gap:36px" data-note="이렇게 작은 카메라가 있다는 것을 기사 제목으로 보여 준다. 다섯 명이 적발됐다는 숫자가 중요한 게 아니다.
 클릭 1 — 두 번째 기사.
 ※ 기사는 Claude가 골랐다. 제목과 날짜는 11월 24일에 원문에서 확인했다. 사진은 싣지 않고 제목과 출처만 쓴다. 다른 기사로 바꾸고 싶으면 말해 줘.
@@ -745,7 +807,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   </div>
 </section>
 
-<!-- 18 실물, 실시간 화면 -->
+<!-- 22 실물, 실시간 화면 -->
 <section class="slide" id="s-cam" data-look="wine" data-part="3부  그 내가 누구에게 가는지" data-note="실물을 보여 주고 돌려 보게 한다. 카메라가 보고 있는 것이 오른쪽에 실시간으로 뜬다.
 카메라 화면은 이 노트북에서만 켜진다. 휴대폰에서는 카메라를 요청하지 않고, 화면도 노트북 밖으로 나가지 않는다. 이 장과 다음 장을 벗어나면 카메라는 꺼진다.
 카메라는 P 창에서 고른다. USB로 안 잡히는 카메라면 ‘화면·창 가져오기’를 골라, 휴대폰 화면을 노트북에 띄운 창을 가져온다.
@@ -759,7 +821,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
   </div>
 </section>
 
-<!-- 19 찍어서 푼다 -->
+<!-- 23 찍어서 푼다 -->
 <section class="slide" id="s-solve" data-look="wine" data-part="3부  그 내가 누구에게 가는지" style="gap:22px;padding-top:84px" data-note="그 카메라로 21번을 찍어서 푼다. 카메라는 손에 들고 비춘다. 숨기지 않는다.
 Space(또는 ‘찍고 풀기’) — 지금 화면을 한 장 찍어 Claude에게 보낸다. 답이 오른쪽에 크게 뜨고, 걸린 시간이 초로 나온다.
 R — 다시 비추기. Esc — 풀이 멈추기. →는 그냥 다음 장으로 넘어간다.
@@ -774,7 +836,7 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
   </div>
 </section>
 
-<!-- 20 커닝 -->
+<!-- 24 커닝 -->
 <section class="slide center" id="s-cheat" data-look="wine" data-part="3부  그 내가 누구에게 가는지" style="gap:48px" data-note="커닝은 잘못이다.
 클릭 1 — 그런데 커닝만 막으면 되는 문제가 아니다.
 본질이 무엇인가. 커닝만 안 하면 되는 게 아니라, 이 사회는 시험이라는 모래성 위에 구조를 올리고 있었다.">
@@ -782,11 +844,12 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
   <h2 class="t-state acc" data-step="1">그런데 커닝만 막으면<br>되는 문제가 아니다.</h2>
 </section>
 
-<!-- 21 모래성 -->
+<!-- 25 모래성 -->
 <section class="slide" id="s-sand" data-look="wine" data-part="3부  그 내가 누구에게 가는지" data-note="시험은 몸 안의 기억으로 줄을 세운다. (2부에서 권한 것 — AI에 기억을 넣고 기억장치로 쓰는 일 — 이 시험장에서는 부정행위가 된다.)
 클릭 1 — 그 줄이 이 사회를 지탱해 왔다.
-클릭 2 — 그게 모래성이다. 쌓여 있던 알갱이가 무너진다.
-클릭 3 — 지식노동이라는 이름 아래의 줄 세우기가 마지막 낙엽이었다. 맨 위에 남은 한 알이 노랗게 바뀌고, 낙엽처럼 좌우로 흔들리며 천천히 떨어져 무더기 위에 앉는다(8초쯤). 말은 그 사이에 하면 된다.
+클릭 2 — 그게 모래성이다. 쌓여 있던 알갱이가 무너지고, 이어서(클릭 없이) 맨 위에 남은 한 알이 노랗게 바뀌어 낙엽처럼 좌우로 흔들리며 천천히 떨어져 무더기 위에 앉는다(클릭하고 8초쯤). 말은 그 사이에 하면 된다.
+클릭 3 — 지식노동이라는 이름 아래의 줄 세우기가 마지막 낙엽이었다. (문장만 뜬다. 낙엽이 떨어지는 중에 눌러도 낙엽은 그대로 이어서 떨어진다.)
+(11월 26일에 네가 ‘아래가 무너질 때 연속으로 맨 위의 하나도 낙엽처럼 떨어지게’라고 해서, 따로 클릭하던 것을 무너지는 클릭에 이었다.)
 이 붕괴는 시험에서 끝나지 않을 것 같다.">
   <div class="cols" style="gap:60px">
     <div class="col grow" style="gap:36px">
@@ -799,31 +862,32 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
   </div>
 </section>
 
-<!-- 22 방향 -->
+<!-- 26 방향 -->
 <section class="slide" id="s-way" data-look="wine" data-part="3부  그 내가 누구에게 가는지" style="gap:30px" data-note="방향만 둔다. 예측이 아니다.
 사람이 굶주림을 벗어난 건 농경 이후다. 그 뒤로도 사람을 줄 세울 방법은 계속 있었다. 지식노동이 그 마지막이다.
 이 시대, 30년 안에 끝나지 않을지도 모른다. 지금 말하든 100년 전에 말하든 1000년 전에 말하든 같은 이야기다.
 처음 — 농경 이후, 생존의 문제는 사실상 해결되었다. (11월 26일에 네가 이 문장으로 열자고 했다. 다음 쪽의 ‘생존의 문제가 해결되면’과 이어진다.)
 클릭 1 — 그 뒤로 사람 사회는 줄곧 일이 덜 필요한 쪽으로 왔다. 계단이 같이 뜬다.
 클릭 2 — 아래 한 줄.
+계단의 이름은 11월 26일에 네가 정했다: 산업혁명(육체노동), 정보화혁명(지식노동). 첫 계단을 뭐라고 쓸지 물어서 Claude가 ‘농업혁명(생존노동)’으로 넣었다. 먹고살려고 하던 일 → 몸으로 하던 일 → 머리로 하던 일로 읽히고, 이 쪽의 첫 문장과 다음 쪽의 ‘생존의 문제’와 낱말이 맞는다. 다른 말이 낫다면 바꾼다(예: 수렵·채집).
 ※ 계단 그림과 아래 한 줄은 Claude가 붙였다. 계단의 높이는 수치가 아니라 방향을 보이는 그림이다. 둘째 문장 앞의 ‘농경 이후’는 첫 문장과 겹쳐서 ‘그 뒤로’로 바꿨다.">
   <h2 class="t-title">농경 이후, 생존의 문제는 사실상 해결되었다.</h2>
   <p class="t-line" data-step="1">그 뒤로 사람 사회는 줄곧 일이 덜 필요한 쪽으로 왔다.</p>
-  <svg id="stair" data-step="1" viewBox="0 0 1664 420" aria-label="농경, 산업, 지식노동으로 내려오는 계단. 그다음은 물음표">
+  <svg id="stair" data-step="1" viewBox="0 0 1664 420" aria-label="농업혁명(생존노동), 산업혁명(육체노동), 정보화혁명(지식노동)으로 내려오는 계단. 그다음은 물음표">
     <path d="M4 70H420V180H840V290H1260"/><path class="dash" d="M1260 290V400H1660"/>
-    <text x="4" y="48">농경</text><text x="444" y="158">산업</text><text x="864" y="268">지식노동</text><text class="q" x="1284" y="378">?</text>
+    <text x="4" y="48">농업혁명<tspan class="par" dx="14">(생존노동)</tspan></text><text x="444" y="158">산업혁명<tspan class="par" dx="14">(육체노동)</tspan></text><text x="864" y="268">정보화혁명<tspan class="par" dx="14">(지식노동)</tspan></text><text class="q" x="1284" y="378">?</text>
   </svg>
   <p class="t-lead" data-step="2">언제인지를 말하려는 게 아니다. 어느 쪽인지를 말하려는 것이다.</p>
 </section>
 
-<!-- 23 교회가 답해야 할 물음 -->
+<!-- 27 교회가 답해야 할 물음 -->
 <section class="slide center" id="s-church" data-look="wine" data-part="3부  그 내가 누구에게 가는지" style="gap:40px" data-note="하지만 교회는 답을 해야 한다. 생존의 문제가 해결되면 우리는 무엇을 해야 하는가.
-내가 내리는 답은 27쪽에 있다. 여기서는 물음만.">
+내가 내리는 답은 맨 마지막({s-end}쪽)에 그림을 놓고 말로 한다. 여기서는 물음만.">
   <p class="t-lead">교회가 답해야 할 물음</p>
   <h2 class="t-state">생존의 문제가 해결되면,<br>우리는 무엇을 해야 하는가.</h2>
 </section>
 
-<!-- 24 오디세이의 나그네 -->
+<!-- 28 오디세이의 나그네 -->
 <section class="slide" id="s-beggar" data-look="glaze" data-part="3부  그 내가 누구에게 가는지" style="justify-content:center;gap:38px" data-note="세 번째 오디세이. 거지를 어떻게 대하는지.
 거지 차림의 오디세우스가 먹을 것을 청하자 안티노오스가 소리친다.
 클릭 1 — 2부에서 활에 줄을 걸던 그 사람이다.
@@ -837,7 +901,7 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
   <div class="meander"></div>
 </section>
 
-<!-- 25 누가복음 10장 -->
+<!-- 29 누가복음 10장 -->
 <section class="slide" id="s-luke" data-look="violet" data-part="3부  그 내가 누구에게 가는지" style="gap:26px;padding-top:84px" data-note="누가복음 10장. 본문 낭독이 아니라 대화의 차례를 한 줄씩 보여 준다(개역개정).
 클릭 1~4 — 한 줄씩. 율법교사는 예수를 시험하려고 묻는다. 넷째 줄 뒤에 그는 자기를 옳게 보이려고 다시 묻는다.
 클릭 5 — 예수는 이야기 하나로 답하시고, 되물으신다.
@@ -856,7 +920,7 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
   <p class="t-line acc" data-step="6" style="margin-top:auto">물음이 바뀌었다.</p>
 </section>
 
-<!-- 26 바뀐 질문 -->
+<!-- 30 바뀐 질문 -->
 <section class="slide" id="s-last" data-look="violet" data-part="3부  그 내가 누구에게 가는지" data-note="교육의 목적이 줄 세우기라면, 거기서 1등 되는 방법을 내게 묻는다면 — 율법교사의 질문 같지 않은가.
 클릭 1 — 나는 이렇게 답하고 싶다. ‘꼴찌는 어떻게 하면 좋겠는가.’ 불이 맨 위에서 맨 아래로 옮겨 간다.
 답은 받지 않는다.">
@@ -869,13 +933,21 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
   </div>
 </section>
 
-<!-- 27 맺음 -->
-<section class="slide" id="s-end" data-look="violet" data-note="맺음. 생존의 문제가 해결되면 우리는 무엇을 해야 하는가 — 내가 내리는 답.
-누군가의 이웃이 되어야 한다.
-클릭 1 — 누군가의 생존을 도와야 한다.
-표지와 같은 수평선이다. 이번에는 밤이고, 빛이 막 올라온다.">
-  <div class="sky"><div class="sun"></div></div><div class="sea"></div>
-  <div class="say"><h2 class="t-state">누군가의 이웃이 되어야 한다.</h2><h2 class="t-state" data-step="1">누군가의 생존을 도와야 한다.</h2></div>
+<!-- 31 맺음: 그림 한 장 -->
+<section class="slide" id="s-end" data-look="violet" data-note="맺음. 글은 없다. 그림 한 장을 놓고 네가 말로 한다.
+(11월 26일에 네가 ‘마지막 장에 결론을 이런 식으로 쓰지 말고, 선한 사마리아인 비유가 있는 옛날 그림 한 장만 딱 넣어 주고 내가 설명하고 싶어’라고 했다. 그래서 문장 두 줄과 수평선 그림을 뺐다.)
+네가 내리는 답(전에 이 장에 적혀 있던 두 줄, 이제는 말로): 누군가의 이웃이 되어야 한다. 누군가의 생존을 도와야 한다.
+
+그림 — 빈센트 반 고흐, 「선한 사마리아인(들라크루아를 따라)」, 1890년 5월 초. 캔버스에 유채, 73 × 59.5cm. 크뢸러뮐러 미술관(네덜란드 오테를로).
+· 미술관 설명: 크게 앓고 난 뒤에 고흐가 들라크루아의 「선한 사마리아인」을 흑백 판화로 보고, 자기 색으로 캔버스에 옮겨 그렸다. 죽기 두 달쯤 전이다.
+· 가운데: 사마리아인이 다친 사람을 자기 짐승 위로 밀어 올리고 있다. 온몸으로 버틴다.
+· 왼쪽 길: 두 사람이 등을 보이고 멀어진다. 가까운 사람, 그리고 길 위쪽에 아주 작게 또 한 사람. (보통 가까운 쪽을 레위인, 먼 쪽을 제사장으로 읽는다. 먼저 지나간 사람이 더 멀리 가 있다.)
+· 왼쪽 아래: 열린 채 비어 있는 궤짝. 강도가 털고 간 자리다.
+※ 그림은 Claude가 골랐다. 다른 옛 그림으로 바꿀 수 있다(예: 렘브란트 1630 — 여관에 닿는 장면, 판 코르트벰더 1647 — 가로로 넓은 그림).">
+  <figure>
+    <img src="img/samaritan.jpg" width="1400" height="1729" decoding="async" alt="다친 사람을 자기 짐승 위로 밀어 올리는 사마리아인. 왼쪽 길로 두 사람이 등을 보이고 멀어지고, 왼쪽 아래에 빈 궤짝이 열려 있다.">
+    <figcaption>빈센트 반 고흐<br><b>선한 사마리아인</b><br>들라크루아를 따라, 1890</figcaption>
+  </figure>
 </section>
 
 <div id="qrBig" hidden><div class="panel"><img class="qrimg" alt="QR 코드"><p class="h" id="qrHint"></p><p class="u" id="qrUrl"></p></div></div>
@@ -895,11 +967,11 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
   <div class="phead"><h3>발표자 조작<small>P 또는 Esc로도 닫혀요</small></h3><button id="panelClose" type="button" aria-label="발표자 조작 닫기">닫기 ✕</button></div>
   <section><label for="manIn">지금 이 장에 직접 넣기</label><div class="prow"><input id="manIn" autocomplete="off"><button class="pri" id="manAdd">넣기</button><button id="manUndo">되돌리기</button></div><p id="manHint"></p></section>
   <section id="slotSec" hidden><label>이 장에 넣을 그림·영상<small>이 노트북에만 저장됩니다</small></label><div id="slotRows" style="display:flex;flex-direction:column;gap:8px"></div></section>
-  <section><label for="actualIn">실제 키<small>2쪽에서 두 번째 클릭에 공개</small></label><div class="prow"><input id="actualIn" type="number" inputmode="decimal" placeholder="미리 넣어 두기"><span>cm</span></div></section>
-  <section><label for="mvStart">「퇴사할게여」 영상<small>3쪽</small></label><div class="prow"><input id="mvStart" type="number" min="0" inputmode="numeric" placeholder="0"><span>초부터 15초 동안</span></div></section>
-  <section><label for="udIn">업다운 숫자<small>11쪽. 비워 두면 컴퓨터가 고릅니다</small></label><div class="prow"><input id="udIn" type="number" min="1" max="100" inputmode="numeric" placeholder="1~100"><button id="udReset">처음부터 다시</button></div><p id="udStat"></p></section>
-  <section><label>성탄 카드 실습<small>14쪽</small></label><div class="prow"><button id="cardUndo">한 발 되돌리기</button><button id="cardReset">카드 처음부터</button></div><p id="cardStat"></p></section>
-  <section><label for="camSel">카메라와 풀이<small>18·19쪽</small></label>
+  <section><label for="actualIn">실제 키<small data-pgof="s-height" data-tail="에서 두 번째 클릭에 공개"></small></label><div class="prow"><input id="actualIn" type="number" inputmode="decimal" placeholder="미리 넣어 두기"><span>cm</span></div></section>
+  <section><label for="mvStart">「퇴사할게여」 영상<small data-pgof="s-words"></small></label><div class="prow"><input id="mvStart" type="number" min="0" inputmode="numeric" placeholder="0"><span>초부터 15초 동안</span></div></section>
+  <section><label for="udIn">업다운 숫자<small data-pgof="s-updown" data-tail=". 비워 두면 컴퓨터가 고릅니다"></small></label><div class="prow"><input id="udIn" type="number" min="1" max="100" inputmode="numeric" placeholder="1~100"><button id="udReset">처음부터 다시</button></div><p id="udStat"></p></section>
+  <section><label>성탄 카드 실습<small data-pgof="s-card"></small></label><div class="prow"><button id="cardUndo">한 발 되돌리기</button><button id="cardReset">카드 처음부터</button></div><p id="cardStat"></p></section>
+  <section><label for="camSel">카메라와 풀이<small data-pgof="s-cam,s-solve"></small></label>
     <div class="prow"><select id="camSel"></select><button id="camRot">돌리기</button></div>
     <div class="prow"><input id="camKey" type="password" autocomplete="off" placeholder="Claude API 키" aria-label="Claude API 키"><button id="camKeyDel">지우기</button></div>
     <p>키는 파일에 적히지 않고 이 브라우저에만 남습니다.</p>
@@ -939,6 +1011,7 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
     // a slide's reveal state is set before it becomes visible, so nothing flashes on arrival
     if(arrived)s.classList.add('snap');
     s.dataset.at=step;
+    s.dataset.arr=arrived?step:Math.min(step,+s.dataset.arr||0);   // the lowest step seen since this slide was arrived at: tells 'watched it happen' from 'came in after'
     s.querySelectorAll('[data-step]').forEach(e=>e.classList.toggle('pending',+e.dataset.step>step));
     s.querySelectorAll('[data-until],[data-from]').forEach(e=>{e.hidden=(e.dataset.until!=null&&step>=+e.dataset.until)||(e.dataset.from!=null&&step<+e.dataset.from)});
     if(arrived){void s.offsetWidth;s.classList.remove('snap')}
@@ -1505,6 +1578,9 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
     if(!$('panel').hidden)panelSync();
     announce();phoneSync();
   }
+  // page numbers written as {slide id} in the notes, and the ones in the drawer, follow the deck's real order
+  slides.forEach(x=>{if(x.dataset.note)x.dataset.note=x.dataset.note.replace(/\{(s-[\w-]+)\}/g,(m,id)=>idxOf(id)>=0?String(idxOf(id)+1):m)});
+  document.querySelectorAll('[data-pgof]').forEach(e=>{e.textContent=e.dataset.pgof.split(',').map(id=>idxOf(id)+1).join('·')+'쪽'+(e.dataset.tail||'')});
   setLook(store.get('look3')||'day',true);
   listCams();
   drawAll();paint();makeQr();

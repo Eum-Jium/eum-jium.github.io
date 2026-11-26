@@ -35,13 +35,13 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .col{display:flex;flex-direction:column;gap:28px;min-width:0}
 
 /* type */
-.t-state{font-family:var(--serif);font-weight:800;font-size:104px;line-height:1.3;letter-spacing:-.015em;text-wrap:balance}
-.t-title{font-family:var(--serif);font-weight:800;font-size:72px;line-height:1.25;letter-spacing:-.01em;text-wrap:balance}
-.t-head{font-family:var(--serif);font-weight:800;font-size:58px;line-height:1.25;letter-spacing:-.01em}
-.t-line{font-family:var(--serif);font-weight:700;font-size:56px;line-height:1.42;letter-spacing:-.005em;text-wrap:balance}
-.t-line.b{font-weight:800;font-size:72px;line-height:1.3;letter-spacing:-.01em}
-.t-line.s{font-size:46px}
-.t-lead{font-size:38px;line-height:1.5;font-weight:500;color:var(--soft);text-wrap:pretty}
+.t-state{font-family:var(--serif);font-weight:800;font-size:88px;line-height:1.3;letter-spacing:-.015em;text-wrap:balance}
+.t-title{font-family:var(--serif);font-weight:800;font-size:60px;line-height:1.25;letter-spacing:-.01em;text-wrap:balance}
+.t-head{font-family:var(--serif);font-weight:800;font-size:50px;line-height:1.25;letter-spacing:-.01em}
+.t-line{font-family:var(--serif);font-weight:700;font-size:46px;line-height:1.42;letter-spacing:-.005em;text-wrap:balance}
+.t-line.b{font-weight:800;font-size:60px;line-height:1.3;letter-spacing:-.01em}
+.t-line.s{font-size:40px}
+.t-lead{font-size:32px;line-height:1.5;font-weight:500;color:var(--soft);text-wrap:pretty}
 .t-small{font-size:25px;line-height:1.5;color:var(--soft)}
 .acc{color:var(--accent)}
 .soft{color:var(--soft)}
@@ -164,7 +164,7 @@ html[data-mode="audience"] .slot>:not(.aud-only){display:none}
 .filmq .en{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:36px;line-height:1.45;color:var(--ink)}
 .filmq .ko{font-size:30px;line-height:1.5;color:var(--soft)}
 .filmq .src{font-size:23px;color:var(--soft)}
-.bigq{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:700;font-size:104px;line-height:1.22;letter-spacing:-.01em;color:var(--accent);text-wrap:balance}
+.bigq{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:700;font-size:88px;line-height:1.22;letter-spacing:-.01em;color:var(--accent);text-wrap:balance}
 #bowArt{width:100%;flex:1;min-height:0;display:block}
 #bowArt .cl{stroke:var(--accent);fill:none;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
 #bowArt .bl{fill:var(--accent);stroke:none}
@@ -215,12 +215,12 @@ html[data-mode="audience"] .slot>:not(.aud-only){display:none}
 .pair>div{padding:26px 40px 0 0;display:flex;flex-direction:column;gap:12px}
 .pair>div+div{border-left:1.5px solid var(--line);padding-left:44px}
 .pair .k{font-size:30px;font-weight:700;color:var(--soft)}
-.pair .v{font-family:var(--serif);font-weight:800;font-size:104px;line-height:1.2;letter-spacing:-.02em}
+.pair .v{font-family:var(--serif);font-weight:800;font-size:84px;line-height:1.2;letter-spacing:-.02em}
 .pair .x{font-size:30px;color:var(--soft)}
 .three-w{display:grid;grid-template-columns:repeat(3,1fr);border-top:4px solid var(--ink)}
 .three-w>div{padding:18px 24px 0 32px;border-left:1.5px solid var(--line);display:flex;flex-direction:column;gap:8px}
 .three-w>div:first-child{border-left:0;padding-left:0}
-.three-w b{font-family:var(--serif);font-weight:800;font-size:84px;line-height:1.15;letter-spacing:-.02em}
+.three-w b{font-family:var(--serif);font-weight:800;font-size:76px;line-height:1.15;letter-spacing:-.02em}
 .three-w small{font-size:30px;color:var(--soft)}
 .three-w .none b{transition:color .6s ease}
 #s-memory:not([data-at="0"]) .three-w .none b{color:var(--paper);-webkit-text-stroke:7px var(--ink);paint-order:stroke fill}
@@ -294,9 +294,10 @@ html[data-mode="audience"] .shoot{display:none}
 #stair{width:100%;flex:1;min-height:0;display:block}
 #stair path{fill:none;stroke:var(--ink);stroke-width:6;stroke-linejoin:round;stroke-linecap:round}
 #stair .dash{stroke-dasharray:4 18;stroke:var(--accent)}
-#stair text{font-family:var(--serif);font-weight:800;font-size:46px;fill:var(--ink)}
-#stair text.q{fill:var(--accent)}
-#stair .par{font-family:var(--sans);font-weight:500;font-size:32px;fill:var(--soft)}
+#stair text{font-family:var(--serif);font-weight:800;font-size:40px;fill:var(--ink)}
+#stair text.cap{font-family:var(--sans);font-weight:400;font-size:20px;fill:var(--soft)}
+#stair text.q{fill:var(--accent);font-size:84px}
+#stair .par{font-family:var(--sans);font-weight:500;font-size:27px;fill:var(--soft)}
 /* the page that opens each part: a breath. The part's name above a rule; under the rule, where we are among the three */
 .slide.part{justify-content:flex-end;gap:6px;padding-bottom:268px}
 .part .pn{font-family:var(--serif);font-weight:800;font-size:60px;line-height:1.2;color:var(--accent)}
@@ -371,6 +372,29 @@ html[data-mode="audience"] .shoot{display:none}
 [data-look="light"] .lineart{mix-blend-mode:multiply}
 .art figcaption{font-size:20px;color:var(--soft);margin-top:10px}
 #s-beggar .bigq{font-size:80px}
+/* ---------- photographs and paintings: the picture leads, the words sit beside it ---------- */
+.cr{display:block;font-style:normal;font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.4;color:var(--soft);opacity:.85}
+figure{margin:0}
+figure img{display:block;width:100%;height:auto}
+figcaption{font-size:18px;line-height:1.4;color:var(--soft);margin-top:8px}
+#s-four .zone{height:auto}
+.four.photos .f{padding:16px 16px 0 20px;gap:8px}
+.four.photos .f:first-child{padding-left:0}
+.four.photos .ph{position:relative;height:290px;display:flex;align-items:center;margin-bottom:4px}
+.four.photos .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:4px}
+.four.photos small{font-size:26px;line-height:1.4}
+.four.photos small .cr{display:block;font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.4;color:var(--soft);margin-top:4px}
+#s-four .stmt{padding-top:26px;gap:20px}
+.kept.pics>div{padding-top:14px}
+.kept.pics img{display:block;width:100%;height:150px;object-fit:cover;border-radius:4px;margin-bottom:8px}
+#s-record .lines{gap:20px}
+.vase{flex:none;width:520px}
+.vase img{border-radius:4px}
+.cardph{flex:none;width:760px}
+#s-card .scene .t-state{font-size:76px}
+.cardph img{box-shadow:0 14px 40px rgba(0,0,0,.18)}
+.sandph{flex:none;width:300px}
+.sandph img{border-radius:4px}
 /* 24 Luke 10, turn by turn */
 .turns{display:flex;flex-direction:column;gap:14px}
 .turn{display:flex;align-items:center;gap:22px;transition:opacity .6s ease}
@@ -572,13 +596,14 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 클릭 1 — 동물의 예가 하나씩 뜬다.
 ※ 동물 예시 네 줄과 아래 한 줄은 Claude가 붙인 받침이다. 필요 없으면 말해 줘, 뺄게. (침팬지의 도구, 버빗원숭이의 경고음, 정원사새의 정자 꾸미기, 혹등고래의 노래)
 네 낱말은 {s-sci}쪽까지 같은 자리에 그대로 있고, {s-lang}쪽에서 다시 나온다. 아래 문장만 바뀐다.
-그림(11월 26일): 넷 위에 기호를 하나씩 붙였다. 망치(손재주), 말풍선(말), 액자(그림), 음표(음악). 이 기호는 넷이 나오는 네 쪽에 똑같이 나온다.">
+그림(11월 26일): 넷 위에 기호를 하나씩 붙였다. 망치(손재주), 말풍선(말), 액자(그림), 음표(음악). 이 기호는 넷이 나오는 네 쪽에 똑같이 나온다.
+사진(11월 26일): 클릭 1에서 네 칸에 사진이 뜬다. 흰개미 둔덕에 나뭇가지를 넣는 침팬지(이것만 사진이 아니라 그림이다), 버빗원숭이, 파란 물건을 모아 정자를 꾸민 새틴정원사새, 혹등고래.">
   <div class="zone">
-    <div class="four">
-      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-hand"/></svg><b>손재주</b><small data-step="1">침팬지도 나뭇가지를 다듬어 도구로 쓴다</small></div>
-      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-talk"/></svg><b>말</b><small data-step="1">버빗원숭이도 적에 따라 다른 소리로 알린다</small></div>
-      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-pic"/></svg><b>그림</b><small data-step="1">정원사새도 색을 골라 제 정자를 꾸민다</small></div>
-      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-music"/></svg><b>음악</b><small data-step="1">혹등고래도 노래를 한다</small></div>
+    <div class="four photos">
+      <div class="f"><div class="ph"><svg class="pic ic" aria-hidden="true"><use href="#i-hand"/></svg><img src="img/chimp.jpg" width="800" height="540" decoding="async" alt="흰개미 둔덕에 나뭇가지를 넣는 침팬지" data-step="1"></div><b>손재주</b><small data-step="1">침팬지도 나뭇가지를 다듬어 도구로 쓴다<i class="cr">그림 W. D. Snyder, CC BY-SA 4.0</i></small></div>
+      <div class="f"><div class="ph"><svg class="pic ic" aria-hidden="true"><use href="#i-talk"/></svg><img src="img/vervet.jpg" width="800" height="540" decoding="async" alt="나뭇잎 사이에서 이쪽을 보는 버빗원숭이" data-step="1"></div><b>말</b><small data-step="1">버빗원숭이도 적에 따라 다른 소리로 알린다<i class="cr">사진 Charles J. Sharp, CC BY-SA 4.0</i></small></div>
+      <div class="f"><div class="ph"><svg class="pic ic" aria-hidden="true"><use href="#i-pic"/></svg><img src="img/bowerbird.jpg" width="800" height="540" decoding="async" alt="파란 물건을 늘어놓은 정자 앞의 새틴정원사새" data-step="1"></div><b>그림</b><small data-step="1">정원사새도 색을 골라 제 정자를 꾸민다<i class="cr">사진 Joseph C Boone, CC BY-SA 4.0</i></small></div>
+      <div class="f"><div class="ph"><svg class="pic ic" aria-hidden="true"><use href="#i-music"/></svg><img src="img/whale.jpg" width="800" height="540" decoding="async" alt="물 위로 솟구치는 혹등고래" data-step="1"></div><b>음악</b><small data-step="1">혹등고래도 노래를 한다<i class="cr">사진 Whit Welles, CC BY 3.0</i></small></div>
     </div>
   </div>
   <div class="col grow stmt">
@@ -634,7 +659,8 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 그래서 넷 가운데 말이다. 다음 장에서 AI로 돌아온다.
 ※ 클릭 4는 네가 11월 24일에 한 말(‘인간이 동물보다 뛰어난 건 문명을 이룩하기 전이었어’)을 문장으로 옮긴 것이다. 클릭 6은 Claude가 낸 생각이고 네가 좋다고 한 것이다.
 ※ 대사의 영어는 영화평 두 곳에서 옮긴 것이고(한 곳은 can 대신 could), 우리말은 Claude가 옮겼다. 극장 자막과 다르면 고쳐 줘.
-그림은 워터하우스 「율리시스와 세이렌」(1891).">
+그림은 워터하우스 「율리시스와 세이렌」(1891).
+사진(11월 26일): 마지막 클릭의 세 칸에 유물 사진을 넣었다. 서사시를 읊는 사람이 그려진 아테네 도기(기원전 5세기, 영국박물관), 보리 배급을 적은 메소포타미아 점토판(기원전 3100년쯤, 그림 기호가 글자가 되어 가던 때), 상형문자를 새긴 이집트 돌 조각.">
   <div class="scene" data-until="2" style="position:absolute;inset:0">
     <img class="full" src="img/sirens.jpg" alt="오디세우스의 배와 노래하는 세이렌들 (워터하우스, 1891)">
     <div class="scrim"></div>
@@ -653,7 +679,8 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
     <p class="t-line acc" data-step="5">인간이 문명을 이룩한 건, 대화를 더 기억하기 위해<br>기록을 남겼기 때문이다.</p>
     <div class="col" data-step="6" style="gap:12px">
       <p class="t-small" style="color:var(--ink);font-size:28px">말을 남기는 데 나머지 셋이 쓰였다.</p>
-      <div class="kept"><div><small>음악</small><b>노래로 외우고</b></div><div><small>그림</small><b>그림은 글자가 되고</b></div><div><small>손재주</small><b>손으로 새겼다</b></div></div>
+      <div class="kept pics"><div><img src="img/rhapsode.jpg" width="640" height="440" decoding="async" alt="지팡이를 짚고 서서 서사시를 읊는 사람이 그려진 그리스 도기"><small>음악</small><b>노래로 외우고</b></div><div><img src="img/tablet.jpg" width="640" height="440" decoding="async" alt="보리 이삭 같은 그림 기호가 새겨진 메소포타미아 점토판"><small>그림</small><b>그림은 글자가 되고</b></div><div><img src="img/hieroglyph.jpg" width="640" height="440" decoding="async" alt="상형문자를 돋을새김한 이집트 석회암 조각"><small>손재주</small><b>손으로 새겼다</b></div></div>
+      <p class="cr">사진 ArchaiOptix(CC BY-SA 4.0) · 메트로폴리탄 미술관(CC0) · 메트로폴리탄 미술관(CC0)</p>
     </div>
   </div>
 </section>
@@ -723,11 +750,15 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 클릭 2 — 화살이 열두 도끼를 지난다. 한 발에.
 클릭 3 — 도구와 과녁.
 다음 장으로 넘어가며: ‘우리는 한 발에 못 맞힌다.’
-※ 원작(『오디세이아』 21권) 기준으로 썼다. 영화 장면과 다르면 고쳐 줘. 공식 클립은 찾지 못해 그림으로 그렸다(돌아다니는 영상은 극장에서 몰래 찍은 것이라 쓰지 않는다).">
-  <h2 class="t-title acc">오디세우스의 활</h2>
-  <div class="col" style="gap:8px;min-height:160px">
-    <p class="t-line s" data-step="1">아무도 줄을 걸지 못한 활에, 거지 차림으로 돌아온 주인이 줄을 건다.</p>
-    <p class="t-line s" data-step="2">그리고 한 발에, 열두 도끼를 꿰뚫었다.</p>
+※ 원작(『오디세이아』 21권) 기준으로 썼다. 영화 장면과 다르면 고쳐 줘. 공식 클립은 찾지 못해 그림으로 그렸다(돌아다니는 영상은 극장에서 몰래 찍은 것이라 쓰지 않는다).
+사진(11월 26일): 오른쪽 위는 구혼자들에게 활을 당기는 오디세우스를 그린 아테네 술잔(기원전 440년쯤, 베를린 고대박물관)이다.">
+  <div class="cols bowtop" style="gap:56px;align-items:flex-start;flex:none">
+    <div class="col grow" style="gap:14px">
+      <h2 class="t-title acc">오디세우스의 활</h2>
+      <p class="t-line s" data-step="1">아무도 줄을 걸지 못한 활에, 거지 차림으로 돌아온 주인이 줄을 건다.</p>
+      <p class="t-line s" data-step="2">그리고 한 발에, 열두 도끼를 꿰뚫었다.</p>
+    </div>
+    <figure class="vase"><img src="img/skyphos.jpg" width="960" height="640" decoding="async" alt="활을 한껏 당긴 오디세우스. 검은 바탕에 주황빛 인물로 그린 그리스 도기"><figcaption>활을 당기는 오디세우스. 아테네 도기, 기원전 440년쯤 · 사진 ArchaiOptix, CC BY-SA 4.0</figcaption></figure>
   </div>
   <svg id="bowArt" viewBox="0 0 1664 500" aria-label="줄을 건 활과, 화살이 지나는 열두 도끼">
     <defs><g id="axe"><path style="fill:var(--accent)" d="M0 262C-58 250-58 340 0 322Z"/><path style="fill:var(--accent)" d="M0 262C58 250 58 340 0 322Z"/><path style="stroke:var(--accent);stroke-width:6;stroke-linecap:round;fill:none" d="M0 224V440"/><circle style="stroke:var(--ink);stroke-width:5;fill:var(--paper)" cx="0" cy="200" r="24"/></g></defs>
@@ -807,12 +838,17 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 받는 사람과 있었던 일을 넣으라는 말이 하나 나오면 좋다. 안 나오면 ‘이 사람과 있었던 일을 하나 넣어 볼까요’ 하고 청해도 된다. 다음 쪽이 거기서 시작한다.
 잘못 골랐으면 P 창의 ‘한 발 되돌리기’. 처음부터 다시는 ‘카드 처음부터’. 네 말을 직접 올리려면 P 창 맨 위 칸에 적는다.
 화면에 올리기 어려운 말이 와도 고르지 않으면 그만이다. 다만 오른쪽 목록에는 그대로 보인다.
-다음 쪽으로 넘어가며(말로): Claude는 카드를 받을 사람을 몰랐다. 우리가 말해 준 만큼만 알았다.">
-  <div class="scene center" data-until="1" style="gap:30px">
-    <svg class="pic cardpic" aria-hidden="true"><use href="#i-card"/></svg>
-    <p class="t-lead">실습</p>
-    <h2 class="t-state">성탄 카드 한 장을,<br>여러분의 말로 써 봅니다.</h2>
-    <p class="t-lead">휴대폰에 Claude에게 시킬 말을 적어 주세요. 그 가운데 하나를 골라, 제가 Claude에 그대로 칩니다.</p>
+다음 쪽으로 넘어가며(말로): Claude는 카드를 받을 사람을 몰랐다. 우리가 말해 준 만큼만 알았다.
+사진(11월 26일): 첫 화면 오른쪽은 1843년 런던에서 헨리 콜이 주문하고 존 캘컷 호슬리가 그린, 처음으로 인쇄해 판 성탄 카드다.">
+  <div class="scene" data-until="1">
+    <div class="cols" style="gap:64px;align-items:center">
+      <div class="col grow" style="gap:26px">
+        <p class="t-lead">실습</p>
+        <h2 class="t-state">성탄 카드 한 장을,<br>여러분의 말로 써 봅니다.</h2>
+        <p class="t-lead">휴대폰에 Claude에게 시킬 말을 적어 주세요. 그 가운데 하나를 골라, 제가 Claude에 그대로 칩니다.</p>
+      </div>
+      <figure class="cardph"><img src="img/card1843.jpg" width="960" height="603" decoding="async" alt="식탁에 둘러앉아 잔을 든 가족이 그려진 옛 성탄 카드. A Merry Christmas and a Happy New Year to You 라고 적혀 있다"><figcaption>1843년 런던, 처음으로 인쇄해 판 성탄 카드 (그림 존 캘컷 호슬리)</figcaption></figure>
+    </div>
   </div>
   <div class="scene" data-from="1" style="gap:18px">
     <div class="udhead"><h2 class="t-head hd"><svg class="pic" aria-hidden="true"><use href="#i-card"/></svg>성탄 카드 한 장</h2><div class="dock sm"><i class="dot"></i><span><b class="dcount" data-k="prompt">0</b>개 도착</span></div></div>
@@ -836,7 +872,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 클릭 2 — AI가 가지고 있지 않은 기억을 우리가 넣어줘야 한다.
 (엽서를 P 창에서 넣어 두었으면 여기서 한 번 더 누를 때 엽서가 뜬다. 안 넣었으면 이 클릭은 저절로 건너뛴다.)
 그다음 — 좋은 기억이 AI를 잘 쓰는 방법이다.
-그다음 — 그래서 나는 멤트레일을 만들었다. 한마디로만. 시스템 설명은 하지 않는다.
+(멤트레일 이야기는 11월 26일에 네가 빼라고 해서 뺐다.)
 다음은 3부 간지다. 다리 말(‘방금 AI를 기억장치로 쓰라고 했습니다 … 시험장입니다’)은 간지를 띄워 놓고 한다.
 ※ 11월 25일에 이 쪽(그때는 14쪽)이 뜬금없다고 해서 이 쪽을 실습 뒤로 옮기고, 맨 위 한 줄(‘Claude는 카드를 받을 사람을 모른다.’)을 넣었다. 그 줄과 셋 아래 작은 줄(AI가 한다 / AI가 읽었다 / AI에게 없다)은 Claude가 붙인 것이다.
 그림(11월 26일): 대화(말풍선 둘), 기록(문서), 기억(점선으로만 남은 빈 칸)에 기호를 붙였다.">
@@ -850,7 +886,6 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
     <div class="col grow" style="gap:26px">
       <p class="t-line b" data-step="2">AI가 가지고 있지 않은 기억을<br>우리가 넣어줘야 한다.</p>
       <p class="t-line" data-step="4">좋은 기억이 AI를 잘 쓰는 방법이다.</p>
-      <p class="t-line acc" data-step="5">그래서 나는 멤트레일을 만들었다.</p>
     </div>
     <div class="slot" data-step="3" data-opt="postcard" data-slot="postcard" data-kind="image" data-label="엽서 스캔"></div>
   </div>
@@ -943,14 +978,16 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
 클릭 2 — 그게 모래성이다. 쌓여 있던 알갱이가 무너지고, 이어서(클릭 없이) 맨 위에 남은 한 알이 검게 바뀌어 낙엽처럼 좌우로 흔들리며 천천히 떨어져 무더기 위에 앉는다(클릭하고 8초쯤). 말은 그 사이에 하면 된다.
 클릭 3 — 지식노동이라는 이름 아래의 줄 세우기가 마지막 낙엽이었다. (문장만 뜬다. 낙엽이 떨어지는 중에 눌러도 낙엽은 그대로 이어서 떨어진다.)
 (11월 26일에 네가 ‘아래가 무너질 때 연속으로 맨 위의 하나도 낙엽처럼 떨어지게’라고 해서, 따로 클릭하던 것을 무너지는 클릭에 이었다.)
-이 붕괴는 시험에서 끝나지 않을 것 같다.">
-  <div class="cols" style="gap:60px">
+이 붕괴는 시험에서 끝나지 않을 것 같다.
+사진(11월 26일): 클릭 2에서 가운데에 모래성 사진이 뜬다.">
+  <div class="cols" style="gap:44px">
     <div class="col grow" style="gap:36px">
       <p class="t-line b">시험은 몸 안의 기억으로<br>줄을 세운다.</p>
       <p class="t-line b" data-step="1">그 줄이 이 사회를 지탱해 왔다.</p>
       <p class="t-state acc" data-step="2">그게 모래성이다.</p>
       <p class="t-lead" data-step="3">지식노동이라는 이름으로 세우던 줄이, 마지막 낙엽이었다.</p>
     </div>
+    <figure class="sandph" data-step="2"><img src="img/sandcastle.jpg" width="640" height="820" decoding="async" alt="바닷가 모래밭에 쌓은 높은 모래성"><figcaption>사진 Jon, CC BY 2.0</figcaption></figure>
     <svg class="pyr" id="pyr1" viewBox="0 0 560 560" aria-hidden="true"></svg>
   </div>
 </section>
@@ -963,12 +1000,15 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
 클릭 1 — 그 뒤로 사람 사회는 줄곧 일이 덜 필요한 쪽으로 왔다. 계단이 같이 뜬다.
 클릭 2 — 아래 한 줄.
 계단의 이름은 11월 26일에 네가 정했다: 산업혁명(육체노동), 정보화혁명(지식노동). 첫 계단을 뭐라고 쓸지 물어서 Claude가 ‘농업혁명(생존노동)’으로 넣었다. 먹고살려고 하던 일 → 몸으로 하던 일 → 머리로 하던 일로 읽히고, 이 쪽의 첫 문장과 다음 쪽의 ‘생존의 문제’와 낱말이 맞는다. 다른 말이 낫다면 바꾼다(예: 수렵·채집).
-※ 계단 그림과 아래 한 줄은 Claude가 붙였다. 계단의 높이는 수치가 아니라 방향을 보이는 그림이다. 둘째 문장 앞의 ‘농경 이후’는 첫 문장과 겹쳐서 ‘그 뒤로’로 바꿨다.">
+※ 계단 그림과 아래 한 줄은 Claude가 붙였다. 계단의 높이는 수치가 아니라 방향을 보이는 그림이다. 둘째 문장 앞의 ‘농경 이후’는 첫 문장과 겹쳐서 ‘그 뒤로’로 바꿨다.
+그림(11월 26일): 계단 칸마다 그림을 올렸다. 밀레 「이삭 줍는 여인들」(1857), 멘첼 「압연 공장」(1875), 아폴로 때의 NASA 관제실(1969). 셋 다 저작권이 없다.">
   <h2 class="t-title">농경 이후, 생존의 문제는 사실상 해결되었다.</h2>
   <p class="t-line" data-step="1">그 뒤로 사람 사회는 줄곧 일이 덜 필요한 쪽으로 왔다.</p>
-  <svg id="stair" data-step="1" viewBox="0 0 1664 420" aria-label="농업혁명(생존노동), 산업혁명(육체노동), 정보화혁명(지식노동)으로 내려오는 계단. 그다음은 물음표">
-    <path d="M4 70H420V180H840V290H1260"/><path class="dash" d="M1260 290V400H1660"/>
-    <text x="4" y="48">농업혁명<tspan class="par" dx="14">(생존노동)</tspan></text><text x="444" y="158">산업혁명<tspan class="par" dx="14">(육체노동)</tspan></text><text x="864" y="268">정보화혁명<tspan class="par" dx="14">(지식노동)</tspan></text><text class="q" x="1284" y="378">?</text>
+  <svg id="stair" data-step="1" viewBox="0 0 1664 560" role="img" aria-label="농업혁명(생존노동), 산업혁명(육체노동), 정보화혁명(지식노동)으로 내려오는 계단. 칸마다 그림이 있고, 그다음 칸은 물음표다">
+    <image href="img/gleaners.jpg" x="28" y="7" width="372" height="200" preserveAspectRatio="xMidYMid slice"/><image href="img/mill.jpg" x="444" y="107" width="372" height="200" preserveAspectRatio="xMidYMid slice"/><image href="img/control.jpg" x="864" y="207" width="372" height="200" preserveAspectRatio="xMidYMid slice"/>
+    <path d="M4 215H420V315H840V415H1260"/><path class="dash" d="M1260 415V515H1660"/>
+    <text x="12" y="266">농업혁명<tspan class="par" dx="12">(생존노동)</tspan></text><text x="432" y="366">산업혁명<tspan class="par" dx="12">(육체노동)</tspan></text><text x="852" y="466">정보화혁명<tspan class="par" dx="12">(지식노동)</tspan></text><text class="q" x="1296" y="498">?</text>
+    <text class="cap" x="12" y="302">밀레, 「이삭 줍는 여인들」, 1857</text><text class="cap" x="432" y="402">멘첼, 「압연 공장」, 1875</text><text class="cap" x="852" y="502">NASA 관제실, 1969</text>
   </svg>
   <p class="t-lead" data-step="2">언제인지를 말하려는 게 아니다. 어느 쪽인지를 말하려는 것이다.</p>
 </section>

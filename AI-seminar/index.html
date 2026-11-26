@@ -285,7 +285,9 @@ html[data-mode="audience"] .shoot{display:none}
 .pyr circle{fill:var(--soft);transition:transform 1.4s cubic-bezier(.3,.1,.3,1),opacity 1.4s ease,fill .6s ease}
 .pyr circle.top{fill:var(--accent)}
 #s-sand[data-at="2"] .pyr circle,#s-sand[data-at="3"] .pyr circle{transform:translate(var(--dx),var(--dy));opacity:var(--op)}
-#s-sand[data-at="3"] .pyr circle.leaf{fill:var(--accent);opacity:1}
+#s-sand[data-at="3"] .pyr circle.leaf{fill:var(--accent);opacity:1;animation:leaf 7.5s ease-in-out 1s forwards}
+/* the last leaf lets go: it swings from side to side, hanging a moment at each turn, and settles on the heap */
+@keyframes leaf{0%{transform:translate(0,0)}11%{transform:translate(48px,30px)}24%{transform:translate(-42px,82px)}38%{transform:translate(40px,138px)}52%{transform:translate(-34px,192px)}66%{transform:translate(28px,244px)}80%{transform:translate(-20px,290px)}92%{transform:translate(9px,332px)}100%{transform:translate(0,346px)}}
 #s-sand:not([data-at="3"]) .pyr circle.top{fill:var(--soft)}
 #s-last .pyr circle.top,#s-last .pyr circle.last{fill:var(--soft)}
 #s-last[data-at="0"] .pyr circle.top{fill:var(--accent)}
@@ -784,7 +786,7 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
 <section class="slide" id="s-sand" data-look="wine" data-part="3부  그 내가 누구에게 가는지" data-note="시험은 몸 안의 기억으로 줄을 세운다. (2부에서 권한 것 — AI에 기억을 넣고 기억장치로 쓰는 일 — 이 시험장에서는 부정행위가 된다.)
 클릭 1 — 그 줄이 이 사회를 지탱해 왔다.
 클릭 2 — 그게 모래성이다. 쌓여 있던 알갱이가 무너진다.
-클릭 3 — 지식노동이라는 이름 아래의 줄 세우기가 마지막 낙엽이었다. 맨 위 한 알만 남는다.
+클릭 3 — 지식노동이라는 이름 아래의 줄 세우기가 마지막 낙엽이었다. 맨 위에 남은 한 알이 노랗게 바뀌고, 낙엽처럼 좌우로 흔들리며 천천히 떨어져 무더기 위에 앉는다(8초쯤). 말은 그 사이에 하면 된다.
 이 붕괴는 시험에서 끝나지 않을 것 같다.">
   <div class="cols" style="gap:60px">
     <div class="col grow" style="gap:36px">
@@ -801,14 +803,17 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
 <section class="slide" id="s-way" data-look="wine" data-part="3부  그 내가 누구에게 가는지" style="gap:30px" data-note="방향만 둔다. 예측이 아니다.
 사람이 굶주림을 벗어난 건 농경 이후다. 그 뒤로도 사람을 줄 세울 방법은 계속 있었다. 지식노동이 그 마지막이다.
 이 시대, 30년 안에 끝나지 않을지도 모른다. 지금 말하든 100년 전에 말하든 1000년 전에 말하든 같은 이야기다.
-클릭 1 — 아래 한 줄.
-※ 계단 그림과 아래 한 줄은 Claude가 붙였다. 계단의 높이는 수치가 아니라 방향을 보이는 그림이다.">
-  <h2 class="t-title">농경 이후, 사람 사회는 줄곧<br>일이 덜 필요한 쪽으로 왔다.</h2>
-  <svg id="stair" viewBox="0 0 1664 420" aria-label="농경, 산업, 지식노동으로 내려오는 계단. 그다음은 물음표">
+처음 — 농경 이후, 생존의 문제는 사실상 해결되었다. (11월 26일에 네가 이 문장으로 열자고 했다. 다음 쪽의 ‘생존의 문제가 해결되면’과 이어진다.)
+클릭 1 — 그 뒤로 사람 사회는 줄곧 일이 덜 필요한 쪽으로 왔다. 계단이 같이 뜬다.
+클릭 2 — 아래 한 줄.
+※ 계단 그림과 아래 한 줄은 Claude가 붙였다. 계단의 높이는 수치가 아니라 방향을 보이는 그림이다. 둘째 문장 앞의 ‘농경 이후’는 첫 문장과 겹쳐서 ‘그 뒤로’로 바꿨다.">
+  <h2 class="t-title">농경 이후, 생존의 문제는 사실상 해결되었다.</h2>
+  <p class="t-line" data-step="1">그 뒤로 사람 사회는 줄곧 일이 덜 필요한 쪽으로 왔다.</p>
+  <svg id="stair" data-step="1" viewBox="0 0 1664 420" aria-label="농경, 산업, 지식노동으로 내려오는 계단. 그다음은 물음표">
     <path d="M4 70H420V180H840V290H1260"/><path class="dash" d="M1260 290V400H1660"/>
     <text x="4" y="48">농경</text><text x="444" y="158">산업</text><text x="864" y="268">지식노동</text><text class="q" x="1284" y="378">?</text>
   </svg>
-  <p class="t-lead" data-step="1">언제인지를 말하려는 게 아니다. 어느 쪽인지를 말하려는 것이다.</p>
+  <p class="t-lead" data-step="2">언제인지를 말하려는 게 아니다. 어느 쪽인지를 말하려는 것이다.</p>
 </section>
 
 <!-- 23 교회가 답해야 할 물음 -->

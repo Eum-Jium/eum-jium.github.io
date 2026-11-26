@@ -1,27 +1,21 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><meta name="theme-color" content="#31102B"></head><body><script src="config.js"></script>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><meta name="theme-color" content="#0C0C0C"></head><body><script src="config.js"></script>
 <title>AI와 대화한다는 것</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
 <style>
 /* Layout: one 1920x1080 stage scaled to the window; compositions sit left on a strong baseline, one picture per part (칸 · 과녁 · 모래성).
-   Colour: Homer's own three — rosy-fingered dawn (1부), bronze (2부), the wine-dark sea (3부, turning to Advent violet at the Gospel).
-   The three Odyssey pages wear the black glaze and red clay of a Greek vase, so the room recognises the refrain. */
+   Colour: none. Black type on white; emphasis is weight and size. The only colour in the room comes from what people made —
+   the paintings and the films. Pages that are about the film, and the last painting, are black, like a cinema. */
 :root{
-  --dawn:#F3D6CA; --clay:#D8532A; --bronze:#E3B354; --wine:#31102B; --glaze:#17110E; --slip:#F4E7D8;
   --serif:"Hahmlet","Noto Serif KR","Nanum Myeongjo",serif; --sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   /* the frame around the deck (buttons, the presenter's drawer) keeps one dark look whatever the slide wears */
-  --c-bg:#140C10; --c-card:#23161D; --c-line:#3D2933; --c-ink:#F4E9E4; --c-soft:#BBA5AE; --c-acc:#F1B45C; --c-on:#1B0E14;
-  --paper:#F3D6CA; --ink:#2B0D1B; --soft:#7A4650; --line:#DDB1A4; --card:#FBEAE2; --accent:#C4391B; --accent-soft:#EDC2B2; --on-accent:#FFF4EE; --deep:#1A0911; --live:#1E7F56;
+  --c-bg:#121212; --c-card:#1E1E1E; --c-line:#3A3A3A; --c-ink:#F2F2F2; --c-soft:#A6A6A6; --c-acc:#FFFFFF; --c-on:#111111;
+  --paper:#F7F7F5; --ink:#111111; --soft:#5F5F5F; --line:#CFCFCC; --card:#FFFFFF; --accent:#111111; --accent-soft:#DCDCD9; --on-accent:#FFFFFF; --deep:#0C0C0C; --live:#111111; --grain:#ADADAA;
   color-scheme:light;
 }
-[data-look="dawn"]{--paper:#F3D6CA;--ink:#2B0D1B;--soft:#7A4650;--line:#DDB1A4;--card:#FBEAE2;--accent:#C4391B;--accent-soft:#EDC2B2;--on-accent:#FFF4EE;--deep:#1A0911;--live:#1E7F56;color-scheme:light}
-[data-look="gold"]{--paper:#E3B354;--ink:#24150A;--soft:#5B3E12;--line:#C0912F;--card:#F0CD82;--accent:#A52C13;--accent-soft:#D5A23F;--on-accent:#FFF1D6;--deep:#1B1108;--live:#1D6B45;color-scheme:light}
-[data-look="wine"]{--paper:#31102B;--ink:#F7EAE4;--soft:#C5A2B6;--line:#5A2A50;--card:#43183B;--accent:#F1B45C;--accent-soft:#4F1F46;--on-accent:#2A0D24;--deep:#1A0817;--live:#58CF9B;color-scheme:dark}
-[data-look="violet"]{--paper:#23143F;--ink:#F4EEF9;--soft:#B3A5CF;--line:#43306E;--card:#2F1D55;--accent:#F3BE6A;--accent-soft:#3A2767;--on-accent:#1D1034;--deep:#130A26;--live:#58CF9B;color-scheme:dark}
-[data-look="glaze"]{--paper:#17110E;--ink:#F4E7D8;--soft:#B49D8A;--line:#3D2B21;--card:#231915;--accent:#E2722F;--accent-soft:#3B2116;--on-accent:#17110E;--deep:#0B0807;--live:#58CF9B;color-scheme:dark}
-/* the same parts for a dark room: 1부 and 2부 on deep grounds */
-[data-look="dusk"]{--paper:#3B1524;--ink:#FBE6DC;--soft:#D2A6A4;--line:#62293A;--card:#4B1D2F;--accent:#F58A5E;--accent-soft:#5A2334;--on-accent:#2B0D1B;--deep:#1F0A13;--live:#58CF9B;color-scheme:dark}
-[data-look="umber"]{--paper:#2A1B10;--ink:#F7EBD6;--soft:#C8AD82;--line:#573A1E;--card:#3A2717;--accent:#E9B24C;--accent-soft:#4A3119;--on-accent:#24150A;--deep:#150D07;--live:#58CF9B;color-scheme:dark}
+/* two looks only: black on white, and its negative (the film pages, the last painting, and every page when the room is dark) */
+[data-look="light"]{--paper:#F7F7F5;--ink:#111111;--soft:#5F5F5F;--line:#CFCFCC;--card:#FFFFFF;--accent:#111111;--accent-soft:#DCDCD9;--on-accent:#FFFFFF;--deep:#0C0C0C;--live:#111111;--grain:#ADADAA;color-scheme:light}
+[data-look="dark"]{--paper:#0E0E0E;--ink:#F5F5F3;--soft:#A8A8A5;--line:#343434;--card:#1A1A1A;--accent:#FFFFFF;--accent-soft:#3A3A3A;--on-accent:#0E0E0E;--deep:#000000;--live:#F5F5F3;--grain:#6E6E6E;color-scheme:dark}
 
 html,body{height:100%}
 [hidden]{display:none!important}
@@ -59,16 +53,12 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .scene{flex:1;min-height:0;display:flex;flex-direction:column;gap:32px;animation:scene .5s ease both}
 @keyframes scene{from{opacity:0}}
 
-/* the horizon: cover and close */
-.sky{position:absolute;left:0;right:0;top:0;height:690px;overflow:hidden}
-.sky .sun{position:absolute;left:1350px;width:300px;height:300px;border-radius:50%}
-.sea{position:absolute;left:0;right:0;top:690px;bottom:0}
+/* the cover: the title, a rule, who and when, and the QR. Nothing else. */
 #s-cover{padding:0}
-#s-cover .sea{background:var(--wine)}
-#s-cover .sun{top:540px;background:var(--clay)}
 #s-cover h1{position:absolute;left:128px;top:138px;font-family:var(--serif);font-weight:800;font-size:176px;line-height:1.17;letter-spacing:-.025em;color:var(--ink)}
-#s-cover .by{position:absolute;left:128px;top:764px;font-size:36px;line-height:1.6;font-weight:500;color:var(--dawn)}
-#s-cover .dock.big{position:absolute;left:1380px;top:752px}
+#s-cover .rule{position:absolute;left:128px;right:128px;top:690px;height:4px;background:var(--ink)}
+#s-cover .by{position:absolute;left:128px;top:728px;font-size:36px;line-height:1.6;font-weight:500;color:var(--ink)}
+#s-cover .dock.big{position:absolute;right:128px;top:734px}
 /* the last page: one painting on a dark wall, nothing written. He speaks. */
 #s-end{padding:0;background:var(--deep);align-items:center;justify-content:center}
 #s-end figure{margin:0;position:relative}
@@ -83,11 +73,11 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .dock.big{padding:14px;border-radius:20px;background:#fff;cursor:pointer;display:block;line-height:0}
 .dock.big img{width:212px;height:212px;display:block}
 @keyframes pulse{50%{opacity:.3}}
-#qrBig{position:absolute;inset:0;z-index:25;background:rgba(12,6,9,.92);display:flex;align-items:center;justify-content:center;cursor:pointer}
-#qrBig .panel{background:#fff;border-radius:28px;padding:44px 64px;display:flex;flex-direction:column;align-items:center;gap:16px;color:#1b0e14}
+#qrBig{position:absolute;inset:0;z-index:25;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;cursor:pointer}
+#qrBig .panel{background:#fff;border-radius:28px;padding:44px 64px;display:flex;flex-direction:column;align-items:center;gap:16px;color:#111}
 #qrBig img{width:600px;height:600px;display:block}
 #qrBig .h{font-family:var(--serif);font-size:46px;font-weight:700}
-#qrBig .u{font-size:28px;color:#6a5961}
+#qrBig .u{font-size:28px;color:#5f5f5f}
 
 /* 2 height */
 .hwrap{display:flex;gap:56px;flex:1;min-height:0;align-items:stretch}
@@ -119,8 +109,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 /* films: a YouTube clip plays only on the presenter's screen */
 .yt{position:relative;width:1600px;height:900px;margin:auto;background:#000;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.yt .alt{display:flex;flex-direction:column;align-items:center;gap:22px;color:#f4e7d8;font-size:30px;text-align:center}
-.play{display:inline-flex;align-items:center;gap:16px;background:#f4e7d8;color:#17110e;text-decoration:none;font-size:32px;font-weight:700;padding:20px 38px;border-radius:999px}
+.yt .alt{display:flex;flex-direction:column;align-items:center;gap:22px;color:#f5f5f3;font-size:30px;text-align:center}
+.play{display:inline-flex;align-items:center;gap:16px;background:#f5f5f3;color:#0e0e0e;text-decoration:none;font-size:32px;font-weight:700;padding:20px 38px;border-radius:999px}
 .play svg{width:28px;height:28px}
 html[data-mode="audience"] .yt .play,html.emb:not([data-mode="audience"]) .yt .alt{display:none}
 .ytopen{position:absolute;left:0;right:0;bottom:30px;text-align:center;font-size:20px;color:var(--soft);text-decoration:none;z-index:2}
@@ -156,9 +146,7 @@ html[data-mode="audience"] .slot>:not(.aud-only){display:none}
 
 /* the Odyssey pages */
 .full{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,17,14,.25),rgba(23,17,14,.55) 45%,rgba(23,17,14,.96) 88%)}
-.meander{position:absolute;left:0;right:0;bottom:0;height:30px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30'%3E%3Cpath d='M0 26H60M52 26V4H8V19H38V11H22' fill='none' stroke='%23E2722F' stroke-width='3.5'/%3E%3C/svg%3E") repeat-x;opacity:.9}
-[data-look="glaze"].slide[data-part]::after,[data-look="glaze"].slide[data-part]::before{bottom:58px}
+.scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,14,.25),rgba(14,14,14,.55) 45%,rgba(14,14,14,.96) 88%)}
 .ody{position:absolute;left:128px;right:128px;bottom:150px;display:flex;flex-direction:column;gap:24px;align-items:flex-start}
 .ody h2{font-family:var(--serif);font-weight:800;font-size:150px;line-height:1.1;letter-spacing:-.02em;color:var(--ink)}
 #s-record .yt{position:absolute;left:160px;top:76px}
@@ -238,7 +226,7 @@ html[data-mode="audience"] .slot>:not(.aud-only){display:none}
 #s-memory:not([data-at="0"]) .three-w .none b{color:var(--paper);-webkit-text-stroke:7px var(--ink);paint-order:stroke fill}
 #s-memory:not([data-at="0"]) .three-w .none small{color:var(--accent);font-weight:700}
 #s-memory .slot{flex:none;width:520px;height:372px}
-#s-memory .slot img{transform:rotate(2.2deg);box-shadow:0 18px 40px rgba(36,21,10,.35);border-radius:4px}
+#s-memory .slot img{transform:rotate(2.2deg);box-shadow:0 18px 40px rgba(0,0,0,.3);border-radius:4px}
 
 /* 15 a card: the lines the room sends, and the ones typed into Claude so far */
 .shots{list-style:none;margin:0;padding:0;flex:1;min-height:0;overflow:auto;display:flex;flex-direction:column;gap:18px;border-top:4px solid var(--ink);padding-top:20px}
@@ -256,15 +244,15 @@ html[data-mode="audience"] .slot>:not(.aud-only){display:none}
 /* 16–19 the exam and the camera */
 #s-exam .slot{flex:1;height:100%;background:#fff;border-radius:10px;padding:26px;box-sizing:border-box}
 #s-exam .slot:not(.has){background:none}
-.clip{background:var(--slip);color:#1c0f17;border-radius:6px;padding:34px 44px 30px;display:flex;flex-direction:column;gap:14px}
-.clip .src{font-size:24px;font-weight:700;color:#7a2a17}
+.clip{background:#fff;color:#111;border:1.5px solid var(--line);border-radius:6px;padding:34px 44px 30px;display:flex;flex-direction:column;gap:14px}
+.clip .src{font-size:24px;font-weight:700;color:#111}
 .clip .hd{font-family:var(--serif);font-weight:800;font-size:50px;line-height:1.34;letter-spacing:-.01em;text-wrap:balance}
-.clip .dt{font-size:22px;color:#6b5560}
-.cam{position:relative;background:#0b0608;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-width:0;min-height:0}
+.clip .dt{font-size:22px;color:#5f5f5f}
+.cam{position:relative;background:#0a0a0a;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-width:0;min-height:0}
 .cam video,.cam img{width:100%;height:100%;object-fit:contain;display:block}
-.cam .off{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;font-size:26px;line-height:1.6;color:#b9a3ae}
+.cam .off{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;font-size:26px;line-height:1.6;color:#a8a8a5}
 .cam .tag{position:absolute;left:18px;top:16px;font-size:20px;font-weight:700;color:#fff;background:rgba(0,0,0,.55);padding:4px 12px;border-radius:999px;display:flex;align-items:center;gap:8px}
-.cam .tag i{width:10px;height:10px;border-radius:50%;background:#ff5a4d;animation:pulse 1.6s infinite}
+.cam .tag i{width:10px;height:10px;border-radius:50%;background:#fff;animation:pulse 1.6s infinite}
 .cam[data-on="1"] .off{display:none}
 .cam:not([data-on="1"]) .tag{display:none}
 .cam .tag.still,.cam[data-shot="1"] .tag:not(.still){display:none}
@@ -287,7 +275,7 @@ html[data-mode="audience"] .shoot{display:none}
 
 /* 20, 25 the sandcastle of rank */
 .pyr{width:560px;height:560px;flex:none;display:block;overflow:visible}
-.pyr circle{fill:var(--soft);transition:transform 1.4s cubic-bezier(.3,.1,.3,1),opacity 1.4s ease,fill .6s ease}
+.pyr circle{fill:var(--grain);transition:transform 1.4s cubic-bezier(.3,.1,.3,1),opacity 1.4s ease,fill .6s ease}
 .pyr circle.top{fill:var(--accent)}
 #s-sand[data-at="2"] .pyr circle,#s-sand[data-at="3"] .pyr circle{transform:translate(var(--dx),var(--dy));opacity:var(--op)}
 /* in the same click as the collapse: the one grain left at the top turns to a leaf while the rest run down, lets go as the heap settles,
@@ -296,8 +284,8 @@ html[data-mode="audience"] .shoot{display:none}
 /* arriving on this page with the castle already down (coming back from the next page, a phone joining late): the leaf is already lying there */
 #s-sand[data-arr="2"] .pyr circle.leaf,#s-sand[data-arr="3"] .pyr circle.leaf{animation-duration:1ms;animation-delay:0s}
 @keyframes leaf{0%{transform:translate(0,0)}11%{transform:translate(48px,30px)}24%{transform:translate(-42px,82px)}38%{transform:translate(40px,138px)}52%{transform:translate(-34px,192px)}66%{transform:translate(28px,244px)}80%{transform:translate(-20px,290px)}92%{transform:translate(9px,332px)}100%{transform:translate(0,346px)}}
-#s-sand[data-at="0"] .pyr circle.top,#s-sand[data-at="1"] .pyr circle.top{fill:var(--soft)}
-#s-last .pyr circle.top,#s-last .pyr circle.last{fill:var(--soft)}
+#s-sand[data-at="0"] .pyr circle.top,#s-sand[data-at="1"] .pyr circle.top{fill:var(--grain)}
+#s-last .pyr circle.top,#s-last .pyr circle.last{fill:var(--grain)}
 #s-last[data-at="0"] .pyr circle.top{fill:var(--accent)}
 #s-last[data-at="1"] .pyr circle.last{fill:var(--accent)}
 #s-last .old{transition:opacity .6s ease}
@@ -328,7 +316,7 @@ html[data-mode="audience"] .shoot{display:none}
 #s-luke[data-at="6"] .turn.key p{color:var(--accent)}
 
 /* chrome */
-#bar{position:fixed;left:0;bottom:0;height:5px;background:var(--c-acc);transition:width .4s ease;z-index:5}
+#bar{position:fixed;left:0;bottom:0;height:5px;background:#8C8C8C;transition:width .4s ease;z-index:5}
 #hud{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;align-items:center;z-index:6;opacity:0;transition:opacity .4s}
 #hud.show,#hud:focus-within{opacity:1}
 #hud button{font-size:14px;padding:8px 12px;border-radius:8px;border:1px solid var(--c-line);background:var(--c-card);color:var(--c-ink);font-variant-numeric:tabular-nums}
@@ -354,7 +342,7 @@ html[data-mode="audience"] .shoot{display:none}
 #panel details[open]{display:flex;flex-direction:column;gap:8px}
 #toast{position:fixed;left:50%;bottom:calc(40px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--c-bg);color:var(--c-ink);border:1px solid var(--c-line);border-radius:999px;padding:10px 22px;font-size:clamp(15px,1.3vw,24px);z-index:50;opacity:0;transition:opacity .3s;pointer-events:none;max-width:90vw;text-align:center}
 #toast.on{opacity:1}
-#notes{position:fixed;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));bottom:calc(60px + env(safe-area-inset-bottom,0px));max-height:40vh;overflow:auto;background:rgba(20,12,16,.96);color:var(--c-ink);font-size:clamp(15px,1.5vw,26px);line-height:1.7;padding:18px 22px;border-radius:12px;z-index:30;white-space:pre-line}
+#notes{position:fixed;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));bottom:calc(60px + env(safe-area-inset-bottom,0px));max-height:40vh;overflow:auto;background:rgba(18,18,18,.96);color:var(--c-ink);font-size:clamp(15px,1.5vw,26px);line-height:1.7;padding:18px 22px;border-radius:12px;z-index:30;white-space:pre-line}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
 /* ---- live: the same page on the room's phones. The slide mirrors the presenter's; the space under it is where the room answers. ---- */
@@ -400,18 +388,19 @@ html[data-mode="audience"] #phone{display:flex;flex-direction:column;gap:14px;po
 <div id="viewport"><div id="stage">
 
 <!-- 1 표지 -->
-<section class="slide" id="s-cover" data-look="dawn" data-note="표지. 제목과 QR만 있다. QR이 무엇인지는 말로 알려 준다 — 찍으면 이 발표 화면이 휴대폰에 그대로 열리고, 내가 넘기는 대로 따라온다. 질문이 나오는 장에서는 휴대폰 아래쪽에 답하는 칸이 열린다.
+<section class="slide" id="s-cover" data-look="light" data-note="표지. 제목과 QR만 있다. QR이 무엇인지는 말로 알려 준다 — 찍으면 이 발표 화면이 휴대폰에 그대로 열리고, 내가 넘기는 대로 따라온다. 질문이 나오는 장에서는 휴대폰 아래쪽에 답하는 칸이 열린다.
 QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 조작: → 또는 클릭으로 넘김 · P 발표자 조작 창 · N 노트 · F 전체화면 · T 색(밝은 방/어두운 방) · Q QR 크게. 마우스를 움직이면 오른쪽 아래에 버튼과 강의 경과 시계가 잠깐 보인다.
-핵심 메시지(화면에는 없다): AI가 무엇인지 따지기보다, 그 앞에서 드러나는 나를 보라. 그리고 그 내가 누구에게 가고 있는지를.">
-  <div class="sky"><div class="sun"></div></div><div class="sea"></div>
+핵심 메시지(화면에는 없다): AI가 무엇인지 따지기보다, 그 앞에서 드러나는 나를 보라. 그리고 그 내가 누구에게 가고 있는지를.
+색: 강의자료는 흑백이다. 색은 사람이 만든 그림과 영상에만 있다. 강조는 굵기와 크기로 한다. 검은 장은 오디세이 장 셋과 마지막 그림이다. (11월 26일에 네가 ‘색이 너무 많고 의미는 없는 느낌’이라고 했고, ‘색은 흑백으로 먼저 해줘’라고 정했다. 표지의 해와 두 색 띠도 그때 뺐다.)">
   <h1>AI와<br>대화한다는 것</h1>
+  <div class="rule"></div>
   <p class="by">꿈이있는교회 특강<br>2026년 12월 6일, 최회현</p>
   <div class="dock big" role="button" tabindex="0" hidden aria-label="QR 코드 크게 보기"><img class="qrimg" alt="이 발표를 휴대폰에 여는 QR 코드"></div>
 </section>
 
 <!-- 2 간지 1부 -->
-<section class="slide part" id="s-part1" data-look="dawn" data-note="간지. 한숨 끊고 간다. 1부 — AI가 뭔지.
+<section class="slide part" id="s-part1" data-look="light" data-note="간지. 한숨 끊고 간다. 1부 — AI가 뭔지.
 줄 아래의 1부·2부·3부는 지금 어디인지를 보여 준다.
 (11월 26일에 네가 ‘1부 2부 3부를 나누는 간지가 필요해, 그래야 한숨 끊고 가지’라고 해서 넣었다. 처음에 Claude가 그려 넣었던 해 그림은 네가 ‘빨간 점이 무슨 의미인지 모르겠다’고 해서 뺐다.)">
   <ol class="where" aria-hidden="true"><li class="now">1부</li><li>2부</li><li>3부</li></ol>
@@ -420,7 +409,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 3 키 맞히기 -->
-<section class="slide" id="s-height" data-look="dawn" data-part="1부  AI가 뭔지" style="gap:20px;padding-top:92px" data-note="한 사람을 앞으로 모신다(미리 동의. 실제 키는 P 창에 미리 넣어 둔다). 청중은 휴대폰에 숫자만 적는다. 휴대폰 없이 할 땐 P 창에서 들리는 대로 넣는다.
+<section class="slide" id="s-height" data-look="light" data-part="1부  AI가 뭔지" style="gap:20px;padding-top:92px" data-note="한 사람을 앞으로 모신다(미리 동의. 실제 키는 P 창에 미리 넣어 둔다). 청중은 휴대폰에 숫자만 적는다. 휴대폰 없이 할 땐 P 창에서 들리는 대로 넣는다.
 처음엔 점만 떨어진다. 다 모이면 —
 클릭 1 — 평균. 클릭 2 — 실제 키.
 평균이 빗나가도 괜찮다. 요점은 평균이 정답이라는 게 아니다.
@@ -438,7 +427,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 4 낱말 맞히기 -->
-<section class="slide" id="s-words" data-look="dawn" data-part="1부  AI가 뭔지" data-note="처음 — ‘AI는 평균을 찾아간다.’ 방금 여러분이 한 일이 AI가 하는 일.
+<section class="slide" id="s-words" data-look="light" data-part="1부  AI가 뭔지" data-note="처음 — ‘AI는 평균을 찾아간다.’ 방금 여러분이 한 일이 AI가 하는 일.
 클릭 1 — ‘저 오늘 ___’. 각자 떠오르는 말을 휴대폰에 적는다. 답은 아직 안 뜨고 도착한 수만 올라간다.
 클릭 2 — 이 방이 쓴 말이 많은 순서로 뜬다. 가장 많은 말이 빈칸에 들어간다.
 클릭 3 — ‘LLM은 낱말에 대한 대답의 평균이다.’
@@ -481,14 +470,14 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 5 물음 -->
-<section class="slide center" id="s-ask" data-look="dawn" data-part="1부  AI가 뭔지" data-note="물음만 띄운다.
+<section class="slide center" id="s-ask" data-look="light" data-part="1부  AI가 뭔지" data-note="물음만 띄운다.
 이어서 말로: ‘그 답을 찾기 위해 우리는 이 낱말이라는 것이 무엇인지, 언어라는 게 무엇인지 잠깐 생각해볼 필요가 있습니다.’
 답은 {s-video}쪽에서 돌아온다.">
   <h2 class="t-state">어떻게 낱말 맞히는 기계가<br>영상까지 만들 수 있는 걸까?</h2>
 </section>
 
 <!-- 6 넷 -->
-<section class="slide" id="s-four" data-look="dawn" data-part="1부  AI가 뭔지" style="gap:0" data-note="사람이 동물보다 유독 뛰어난 것 넷: 손재주, 말, 그림, 음악.
+<section class="slide" id="s-four" data-look="light" data-part="1부  AI가 뭔지" style="gap:0" data-note="사람이 동물보다 유독 뛰어난 것 넷: 손재주, 말, 그림, 음악.
 네 가지가 동물에게 없는 게 아니다. 네 가지가 모두 있지만 사람이 뛰어나다는 것.
 클릭 1 — 동물의 예가 하나씩 뜬다.
 ※ 동물 예시 네 줄과 아래 한 줄은 Claude가 붙인 받침이다. 필요 없으면 말해 줘, 뺄게. (침팬지의 도구, 버빗원숭이의 경고음, 정원사새의 정자 꾸미기, 혹등고래의 노래)
@@ -508,7 +497,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 7 지능 -->
-<section class="slide" id="s-iq" data-look="dawn" data-part="1부  AI가 뭔지" style="gap:0" data-note="이 네 가지를 우리는 보통 지능이라고 부른다.
+<section class="slide" id="s-iq" data-look="light" data-part="1부  AI가 뭔지" style="gap:0" data-note="이 네 가지를 우리는 보통 지능이라고 부른다.
 (가드너의 다중지능 받침 줄은 11월 26일에 뺐다. 넷과 딱 맞지 않아 오히려 헷갈린다.)">
   <div class="zone">
     <div class="four">
@@ -525,7 +514,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 8 연구 -->
-<section class="slide" id="s-sci" data-look="dawn" data-part="1부  AI가 뭔지" style="gap:0" data-note="과학자들은 이 네 가지를 기계가 할 수 있게 하려고 연구해왔다.
+<section class="slide" id="s-sci" data-look="light" data-part="1부  AI가 뭔지" style="gap:0" data-note="과학자들은 이 네 가지를 기계가 할 수 있게 하려고 연구해왔다.
 클릭 1 — 네 분야가 시작된 해.
 ※ 연도 네 줄은 Claude가 붙인 받침이다. 넷 다 1950~60년대에 시작됐다는 것만 말하면 된다.
 1961 유니메이트(GM 공장에 들어간 첫 산업용 로봇) · 1954 조지타운–IBM 실험(러시아어→영어 기계 번역 공개 시연) · 1965 게오르크 네스의 컴퓨터 그림 전시(슈투트가르트) · 1957 일리악 모음곡(힐러와 아이작슨, 컴퓨터가 쓴 첫 악보로 꼽힘).
@@ -544,7 +533,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 9 오디세이: 왜 말인가 -->
-<section class="slide" id="s-record" data-look="glaze" data-part="1부  AI가 뭔지" style="padding:0" data-note="넷 가운데 왜 말인가. 오디세이 예고편으로 연다.
+<section class="slide" id="s-record" data-look="dark" data-part="1부  AI가 뭔지" style="padding:0" data-note="넷 가운데 왜 말인가. 오디세이 예고편으로 연다.
 클릭 1 — 예고편이 이 장 안에서 소리와 함께 재생된다(깃허브 주소로 열었을 때. Claude 안에서는 버튼이 유튜브를 새 창으로 연다). 끝까지 본다. 영상 안을 눌렀다면 영상 바깥을 한 번 눌러야 키보드가 돌아온다.
 클릭 2 — 영화의 마지막 대사. 큰 뜻을 싣지 않는다. 요점은 ‘남긴다는 행위’.
 클릭 3 — 글로 쓰든 노래로 남기든, 사람은 남겼다.
@@ -576,11 +565,10 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
       <div class="kept"><div><small>음악</small><b>노래로 외우고</b></div><div><small>그림</small><b>그림은 글자가 되고</b></div><div><small>손재주</small><b>손으로 새겼다</b></div></div>
     </div>
   </div>
-  <div class="meander"></div>
 </section>
 
 <!-- 10 언어가 풀리자 -->
-<section class="slide" id="s-lang" data-look="dawn" data-part="1부  AI가 뭔지" style="gap:0" data-note="다시 네 낱말. ‘말’만 짙게 떠 있다. 말이 풀리자 왜 나머지 셋도 풀리는지를 한 줄씩 밟는다.
+<section class="slide" id="s-lang" data-look="light" data-part="1부  AI가 뭔지" style="gap:0" data-note="다시 네 낱말. ‘말’만 짙게 떠 있다. 말이 풀리자 왜 나머지 셋도 풀리는지를 한 줄씩 밟는다.
 처음 — AI가 평균적으로 맞추고 있는 것이 바로 그 기록을 통해 배운 대화다.
 클릭 1 — 그런데 사람이 남긴 기록은 글만이 아니다. 그림에도, 노래에도, 영상에도 말이 붙어 있다. 제목, 설명, 가사, 자막.
 클릭 2 — 그래서 기계는 말과 함께 그림을 배우고, 말과 함께 소리를 배웠다. (말로 설명해도 된다: 그래서 말로 시키면 그림이 나온다. 말로 그림을 시키고, 음악을 시키고, 손을 시킨다.)
@@ -604,7 +592,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 11 1부의 맺음: 그래서 영상까지 -->
-<section class="slide" id="s-video" data-look="dawn" data-part="1부  AI가 뭔지" style="gap:30px" data-note="1부의 맺음. {s-ask}쪽의 물음이 돌아온다.
+<section class="slide" id="s-video" data-look="light" data-part="1부  AI가 뭔지" style="gap:30px" data-note="1부의 맺음. {s-ask}쪽의 물음이 돌아온다.
 처음 — 물음: 어떻게 낱말 맞히는 기계가 영상까지 만들 수 있는 걸까?
 클릭 1 — 맞히는 것만 바뀌었다. {s-words}쪽에서 우리는 가려 놓은 낱말을 맞혔다. 기계는 같은 식으로, 흐려 놓은 그림에서 원래 그림을 맞히고, 이어질 소리를 맞히는 연습을 한다.
 클릭 2 — 영상은 그림과 소리를 이어 놓은 것이다. 그래서, 영상까지 만든다.
@@ -625,7 +613,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 12 간지 2부 -->
-<section class="slide part" id="s-part2" data-look="gold" data-note="간지. 질의응답이 끝나면 이 장으로 넘긴다. 2부 — AI를 어떻게 잘 쓸까.
+<section class="slide part" id="s-part2" data-look="light" data-note="간지. 질의응답이 끝나면 이 장으로 넘긴다. 2부 — AI를 어떻게 잘 쓸까.
 2부 전체 흐름은 ‘내 활을 만들어 가는 과정’이다.">
   <ol class="where" aria-hidden="true"><li>1부</li><li class="now">2부</li><li>3부</li></ol>
   <p class="pn">2부</p>
@@ -633,7 +621,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 13 활 -->
-<section class="slide" id="s-bow" data-look="glaze" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:18px" data-note="2부를 여는 장. 다시 오디세이 — 활에 줄 거는 장면.
+<section class="slide" id="s-bow" data-look="dark" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:18px" data-note="2부를 여는 장. 다시 오디세이 — 활에 줄 거는 장면.
 2부 전체 흐름은 ‘내 활을 만들어 가는 과정’이다.
 클릭 1 — 줄이 걸린다. 아무도 줄을 걸지 못한 활. 그 활의 주인이 거지 차림으로 돌아와 줄을 건다.
 클릭 2 — 화살이 열두 도끼를 지난다. 한 발에.
@@ -655,11 +643,10 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
     <g class="arrow"><path class="shaft" d="M104 200H1600"/><path d="M1640 200 1594 184 1604 200 1594 216Z" fill="var(--ink)"/><path d="M122 200 106 186M142 200 126 186M122 200 106 214M142 200 126 214" stroke="var(--ink)" stroke-width="4" fill="none" stroke-linecap="round"/></g>
     <g class="lab" data-step="3"><text x="186" y="486" text-anchor="middle">도구</text><text x="969" y="486" text-anchor="middle">과녁</text></g>
   </svg>
-  <div class="meander"></div>
 </section>
 
 <!-- 14 업다운 -->
-<section class="slide" id="s-updown" data-look="gold" data-part="2부  AI를 어떻게 잘 쓸까" data-note="‘우리는 한 발에 못 맞힌다.’
+<section class="slide" id="s-updown" data-look="light" data-part="2부  AI를 어떻게 잘 쓸까" data-note="‘우리는 한 발에 못 맞힌다.’
 클릭 1 — 업다운 숫자 맞히기. 숫자는 P 창에 미리 정해 둔다(1~100. 비워 두면 컴퓨터가 고르고 P 창에만 보여 준다).
 한 판: 청중이 휴대폰에 숫자를 넣는다 → 점이 줄 위에 떨어진다 → 다 모이면 →(다음)를 누른다 → 이 방의 평균이 ‘이 방의 답’으로 뜨고, 업인지 다운인지가 뜬다 → 곧바로 다음 판이 열린다. 벗어난 쪽은 흐려진다.
 평균이 정한 숫자와 같아지면 ‘정답’. 그다음 →는 다음 장으로 넘어간다.
@@ -675,7 +662,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 15 뉴턴-랩슨 -->
-<section class="slide" id="s-newton" data-look="gold" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:26px" data-note="다리 문장: ‘업다운은 위, 아래만 듣습니다. 얼마나까지 들으면 훨씬 빨리 갑니다.’
+<section class="slide" id="s-newton" data-look="light" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:26px" data-note="다리 문장: ‘업다운은 위, 아래만 듣습니다. 얼마나까지 들으면 훨씬 빨리 갑니다.’
 클릭 1 — 대충 찍는다. 첫 화살은 멀리 맞는다.
 클릭 2 — 빗나간 만큼 고친다. 점선이 ‘빗나간 만큼’이다.
 클릭 3 — 끝까지 간다. 뒤로 갈수록 빨라진다. 화살이 한 발씩 가운데로 모이고, 뒤로 갈수록 확 가까워진다.
@@ -697,7 +684,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 16 두 가지 -->
-<section class="slide" id="s-two" data-look="gold" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:44px" data-note="AI를 기본적으로 잘 사용하려면 두 가지가 있어야 한다. 하나는 정확한 목표, 둘은 업다운을 끝까지 하는 것.
+<section class="slide" id="s-two" data-look="light" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:44px" data-note="AI를 기본적으로 잘 사용하려면 두 가지가 있어야 한다. 하나는 정확한 목표, 둘은 업다운을 끝까지 하는 것.
 클릭 1 — 정확한 목표. 클릭 2 — 업다운을 끝까지.
 클릭 3 — 맞장구 한 문장. 깊이 들어가지 않는다.
 클릭 4 — 동의가 아니라 방향.
@@ -715,7 +702,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 17 실습: 성탄 카드 -->
-<section class="slide" id="s-card" data-look="gold" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:20px" data-note="실습. 성탄 카드 한 장을 청중의 말로 쓴다. Claude에는 네가 직접 친다. 이 장은 청중의 말을 받아서 보여 주는 데까지만 한다.
+<section class="slide" id="s-card" data-look="light" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:20px" data-note="실습. 성탄 카드 한 장을 청중의 말로 쓴다. Claude에는 네가 직접 친다. 이 장은 청중의 말을 받아서 보여 주는 데까지만 한다.
 처음 — 안내.
 클릭 1 — 받는 판. 청중이 휴대폰에 Claude에게 시킬 말을 적어 보내면 오른쪽에 모인다.
 하나를 누르면(또는 숫자 키 1~9) 그 말이 왼쪽에 ‘1발’로 올라간다. 붙여 넣을 수 있게 복사도 해 둔다. 이제 Claude 창으로 넘어가서 그 말을 치고, 나온 카드를 같이 본다.
@@ -746,7 +733,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 18 기억 -->
-<section class="slide" id="s-memory" data-look="gold" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:26px" data-note="실습에서 본 것을 말로 정리하는 자리. 카드를 처음 시켰을 때 Claude는 받을 사람을 몰랐다. 우리가 말해 준 만큼만 알았다.
+<section class="slide" id="s-memory" data-look="light" data-part="2부  AI를 어떻게 잘 쓸까" style="gap:26px" data-note="실습에서 본 것을 말로 정리하는 자리. 카드를 처음 시켰을 때 Claude는 받을 사람을 몰랐다. 우리가 말해 준 만큼만 알았다.
 여기서 1부와 잇는다. 대화, 기록, 기억 가운데 AI에게 없는 것은 기억이다.
 클릭 1 — 셋 아래에 한 줄씩. ‘기억’은 속이 빈 글자가 된다.
 클릭 2 — AI가 가지고 있지 않은 기억을 우리가 넣어줘야 한다.
@@ -772,7 +759,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 19 간지 3부 -->
-<section class="slide part" id="s-part3" data-look="wine" data-note="간지. 3부 — 그 내가 누구에게 가는지.
+<section class="slide part" id="s-part3" data-look="light" data-note="간지. 3부 — 그 내가 누구에게 가는지.
 이 장을 띄워 놓고 다리 말을 한다: ‘방금 AI를 기억장치로 쓰라고 했습니다. 그런데 그걸 쓰면 안 되는 곳이 있습니다. 시험장입니다.’ 그리고 다음 장(수능 21번)으로 넘긴다.">
   <ol class="where" aria-hidden="true"><li>1부</li><li>2부</li><li class="now">3부</li></ol>
   <p class="pn">3부</p>
@@ -780,7 +767,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 20 수능 21번 -->
-<section class="slide" id="s-exam" data-look="wine" data-part="3부  그 내가 누구에게 가는지" data-note="3부를 여는 장. 올해 수능 수학 공통 21번을 같이 풀어 본다.
+<section class="slide" id="s-exam" data-look="light" data-part="3부  그 내가 누구에게 가는지" data-note="3부를 여는 장. 올해 수능 수학 공통 21번을 같이 풀어 본다.
 문제 이미지는 P 창에서 넣는다. 이 노트북에만 저장되고 공개 주소에는 올라가지 않는다(휴대폰에는 ‘앞 화면을 봐 주세요’만 뜬다). 종이로 나눠 줘도 된다.
 클릭 1 — 오답률 한 줄.
 ※ 오답률은 EBS 가채점 서비스 집계(11월 23일 오전 8시, 32만 9,412건)에서 공통 21번이 97.9%로 가장 높았다(베리타스알파 11월 23일). 정답은 12월 1일 오후 5시에 확정된다. 이 줄은 Claude가 붙였다.">
@@ -795,7 +782,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 21 작은 카메라, 기사 -->
-<section class="slide" id="s-news" data-look="wine" data-part="3부  그 내가 누구에게 가는지" style="gap:36px" data-note="이렇게 작은 카메라가 있다는 것을 기사 제목으로 보여 준다. 다섯 명이 적발됐다는 숫자가 중요한 게 아니다.
+<section class="slide" id="s-news" data-look="light" data-part="3부  그 내가 누구에게 가는지" style="gap:36px" data-note="이렇게 작은 카메라가 있다는 것을 기사 제목으로 보여 준다. 다섯 명이 적발됐다는 숫자가 중요한 게 아니다.
 클릭 1 — 두 번째 기사.
 ※ 기사는 Claude가 골랐다. 제목과 날짜는 11월 24일에 원문에서 확인했다. 사진은 싣지 않고 제목과 출처만 쓴다. 다른 기사로 바꾸고 싶으면 말해 줘.
 한국일보 https://www.hankookilbo.com/news/article/A2026111609360002535
@@ -808,7 +795,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 22 실물, 실시간 화면 -->
-<section class="slide" id="s-cam" data-look="wine" data-part="3부  그 내가 누구에게 가는지" data-note="실물을 보여 주고 돌려 보게 한다. 카메라가 보고 있는 것이 오른쪽에 실시간으로 뜬다.
+<section class="slide" id="s-cam" data-look="light" data-part="3부  그 내가 누구에게 가는지" data-note="실물을 보여 주고 돌려 보게 한다. 카메라가 보고 있는 것이 오른쪽에 실시간으로 뜬다.
 카메라 화면은 이 노트북에서만 켜진다. 휴대폰에서는 카메라를 요청하지 않고, 화면도 노트북 밖으로 나가지 않는다. 이 장과 다음 장을 벗어나면 카메라는 꺼진다.
 카메라는 P 창에서 고른다. USB로 안 잡히는 카메라면 ‘화면·창 가져오기’를 골라, 휴대폰 화면을 노트북에 띄운 창을 가져온다.
 처음 열 때 브라우저가 카메라를 써도 되느냐고 묻는다. 리허설 때 한 번 허용해 둔다.">
@@ -822,7 +809,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 23 찍어서 푼다 -->
-<section class="slide" id="s-solve" data-look="wine" data-part="3부  그 내가 누구에게 가는지" style="gap:22px;padding-top:84px" data-note="그 카메라로 21번을 찍어서 푼다. 카메라는 손에 들고 비춘다. 숨기지 않는다.
+<section class="slide" id="s-solve" data-look="light" data-part="3부  그 내가 누구에게 가는지" style="gap:22px;padding-top:84px" data-note="그 카메라로 21번을 찍어서 푼다. 카메라는 손에 들고 비춘다. 숨기지 않는다.
 Space(또는 ‘찍고 풀기’) — 지금 화면을 한 장 찍어 Claude에게 보낸다. 답이 오른쪽에 크게 뜨고, 걸린 시간이 초로 나온다.
 R — 다시 비추기. Esc — 풀이 멈추기. →는 그냥 다음 장으로 넘어간다.
 API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라우저에만 남는다. 발표가 끝나면 ‘지우기’.
@@ -837,7 +824,7 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
 </section>
 
 <!-- 24 커닝 -->
-<section class="slide center" id="s-cheat" data-look="wine" data-part="3부  그 내가 누구에게 가는지" style="gap:48px" data-note="커닝은 잘못이다.
+<section class="slide center" id="s-cheat" data-look="light" data-part="3부  그 내가 누구에게 가는지" style="gap:48px" data-note="커닝은 잘못이다.
 클릭 1 — 그런데 커닝만 막으면 되는 문제가 아니다.
 본질이 무엇인가. 커닝만 안 하면 되는 게 아니라, 이 사회는 시험이라는 모래성 위에 구조를 올리고 있었다.">
   <h2 class="t-state">커닝은 잘못이다.</h2>
@@ -845,9 +832,9 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
 </section>
 
 <!-- 25 모래성 -->
-<section class="slide" id="s-sand" data-look="wine" data-part="3부  그 내가 누구에게 가는지" data-note="시험은 몸 안의 기억으로 줄을 세운다. (2부에서 권한 것 — AI에 기억을 넣고 기억장치로 쓰는 일 — 이 시험장에서는 부정행위가 된다.)
+<section class="slide" id="s-sand" data-look="light" data-part="3부  그 내가 누구에게 가는지" data-note="시험은 몸 안의 기억으로 줄을 세운다. (2부에서 권한 것 — AI에 기억을 넣고 기억장치로 쓰는 일 — 이 시험장에서는 부정행위가 된다.)
 클릭 1 — 그 줄이 이 사회를 지탱해 왔다.
-클릭 2 — 그게 모래성이다. 쌓여 있던 알갱이가 무너지고, 이어서(클릭 없이) 맨 위에 남은 한 알이 노랗게 바뀌어 낙엽처럼 좌우로 흔들리며 천천히 떨어져 무더기 위에 앉는다(클릭하고 8초쯤). 말은 그 사이에 하면 된다.
+클릭 2 — 그게 모래성이다. 쌓여 있던 알갱이가 무너지고, 이어서(클릭 없이) 맨 위에 남은 한 알이 검게 바뀌어 낙엽처럼 좌우로 흔들리며 천천히 떨어져 무더기 위에 앉는다(클릭하고 8초쯤). 말은 그 사이에 하면 된다.
 클릭 3 — 지식노동이라는 이름 아래의 줄 세우기가 마지막 낙엽이었다. (문장만 뜬다. 낙엽이 떨어지는 중에 눌러도 낙엽은 그대로 이어서 떨어진다.)
 (11월 26일에 네가 ‘아래가 무너질 때 연속으로 맨 위의 하나도 낙엽처럼 떨어지게’라고 해서, 따로 클릭하던 것을 무너지는 클릭에 이었다.)
 이 붕괴는 시험에서 끝나지 않을 것 같다.">
@@ -863,7 +850,7 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
 </section>
 
 <!-- 26 방향 -->
-<section class="slide" id="s-way" data-look="wine" data-part="3부  그 내가 누구에게 가는지" style="gap:30px" data-note="방향만 둔다. 예측이 아니다.
+<section class="slide" id="s-way" data-look="light" data-part="3부  그 내가 누구에게 가는지" style="gap:30px" data-note="방향만 둔다. 예측이 아니다.
 사람이 굶주림을 벗어난 건 농경 이후다. 그 뒤로도 사람을 줄 세울 방법은 계속 있었다. 지식노동이 그 마지막이다.
 이 시대, 30년 안에 끝나지 않을지도 모른다. 지금 말하든 100년 전에 말하든 1000년 전에 말하든 같은 이야기다.
 처음 — 농경 이후, 생존의 문제는 사실상 해결되었다. (11월 26일에 네가 이 문장으로 열자고 했다. 다음 쪽의 ‘생존의 문제가 해결되면’과 이어진다.)
@@ -881,14 +868,14 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
 </section>
 
 <!-- 27 교회가 답해야 할 물음 -->
-<section class="slide center" id="s-church" data-look="wine" data-part="3부  그 내가 누구에게 가는지" style="gap:40px" data-note="하지만 교회는 답을 해야 한다. 생존의 문제가 해결되면 우리는 무엇을 해야 하는가.
+<section class="slide center" id="s-church" data-look="light" data-part="3부  그 내가 누구에게 가는지" style="gap:40px" data-note="하지만 교회는 답을 해야 한다. 생존의 문제가 해결되면 우리는 무엇을 해야 하는가.
 내가 내리는 답은 맨 마지막({s-end}쪽)에 그림을 놓고 말로 한다. 여기서는 물음만.">
   <p class="t-lead">교회가 답해야 할 물음</p>
   <h2 class="t-state">생존의 문제가 해결되면,<br>우리는 무엇을 해야 하는가.</h2>
 </section>
 
 <!-- 28 오디세이의 나그네 -->
-<section class="slide" id="s-beggar" data-look="glaze" data-part="3부  그 내가 누구에게 가는지" style="justify-content:center;gap:38px" data-note="세 번째 오디세이. 거지를 어떻게 대하는지.
+<section class="slide" id="s-beggar" data-look="dark" data-part="3부  그 내가 누구에게 가는지" style="justify-content:center;gap:38px" data-note="세 번째 오디세이. 거지를 어떻게 대하는지.
 거지 차림의 오디세우스가 먹을 것을 청하자 안티노오스가 소리친다.
 클릭 1 — 2부에서 활에 줄을 걸던 그 사람이다.
 오디세이의 주제가 나그네를 대접하는 것이기도 하다. 그다음에 누가복음 10장으로.
@@ -898,11 +885,10 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
   <p class="bigq">“Somebody get these beggars out of here!”</p>
   <p class="t-line s soft">누가 이 거지들 좀 여기서 내쫓아라!</p>
   <p class="t-line" data-step="1" style="margin-top:20px">2부에서 활에 줄을 걸던 그 사람이, 바로 이 거지다.</p>
-  <div class="meander"></div>
 </section>
 
 <!-- 29 누가복음 10장 -->
-<section class="slide" id="s-luke" data-look="violet" data-part="3부  그 내가 누구에게 가는지" style="gap:26px;padding-top:84px" data-note="누가복음 10장. 본문 낭독이 아니라 대화의 차례를 한 줄씩 보여 준다(개역개정).
+<section class="slide" id="s-luke" data-look="light" data-part="3부  그 내가 누구에게 가는지" style="gap:26px;padding-top:84px" data-note="누가복음 10장. 본문 낭독이 아니라 대화의 차례를 한 줄씩 보여 준다(개역개정).
 클릭 1~4 — 한 줄씩. 율법교사는 예수를 시험하려고 묻는다. 넷째 줄 뒤에 그는 자기를 옳게 보이려고 다시 묻는다.
 클릭 5 — 예수는 이야기 하나로 답하시고, 되물으신다.
 클릭 6 — 두 물음만 남는다. ‘내 이웃이 누구니이까’가 ‘누가 강도 만난 자의 이웃이 되겠느냐’로 바뀌었다. 여기서 멈춘다. ‘가서 너도 이와 같이 하라’를 앞세우지 않는다.
@@ -921,7 +907,7 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
 </section>
 
 <!-- 30 바뀐 질문 -->
-<section class="slide" id="s-last" data-look="violet" data-part="3부  그 내가 누구에게 가는지" data-note="교육의 목적이 줄 세우기라면, 거기서 1등 되는 방법을 내게 묻는다면 — 율법교사의 질문 같지 않은가.
+<section class="slide" id="s-last" data-look="light" data-part="3부  그 내가 누구에게 가는지" data-note="교육의 목적이 줄 세우기라면, 거기서 1등 되는 방법을 내게 묻는다면 — 율법교사의 질문 같지 않은가.
 클릭 1 — 나는 이렇게 답하고 싶다. ‘꼴찌는 어떻게 하면 좋겠는가.’ 불이 맨 위에서 맨 아래로 옮겨 간다.
 답은 받지 않는다.">
   <div class="cols" style="gap:60px">
@@ -934,11 +920,12 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
 </section>
 
 <!-- 31 맺음: 그림 한 장 -->
-<section class="slide" id="s-end" data-look="violet" data-note="맺음. 글은 없다. 그림 한 장을 놓고 네가 말로 한다.
+<section class="slide" id="s-end" data-look="dark" data-note="맺음. 글은 없다. 그림 한 장을 놓고 네가 말로 한다.
 (11월 26일에 네가 ‘마지막 장에 결론을 이런 식으로 쓰지 말고, 선한 사마리아인 비유가 있는 옛날 그림 한 장만 딱 넣어 주고 내가 설명하고 싶어’라고 했다. 그래서 문장 두 줄과 수평선 그림을 뺐다.)
 네가 내리는 답(전에 이 장에 적혀 있던 두 줄, 이제는 말로): 누군가의 이웃이 되어야 한다. 누군가의 생존을 도와야 한다.
 
 그림 — 빈센트 반 고흐, 「선한 사마리아인(들라크루아를 따라)」, 1890년 5월 초. 캔버스에 유채, 73 × 59.5cm. 크뢸러뮐러 미술관(네덜란드 오테를로).
+· 강의자료가 흑백이라, 이 장이 강의에서 색이 가장 많은 장이다. 고흐도 흑백 판화를 보고 색을 입혀 이 그림을 그렸다(아래).
 · 미술관 설명: 크게 앓고 난 뒤에 고흐가 들라크루아의 「선한 사마리아인」을 흑백 판화로 보고, 자기 색으로 캔버스에 옮겨 그렸다. 죽기 두 달쯤 전이다.
 · 가운데: 사마리아인이 다친 사람을 자기 짐승 위로 밀어 올리고 있다. 온몸으로 버틴다.
 · 왼쪽 길: 두 사람이 등을 보이고 멀어진다. 가까운 사람, 그리고 길 위쪽에 아주 작게 또 한 사람. (보통 가까운 쪽을 레위인, 먼 쪽을 제사장으로 읽는다. 먼저 지나간 사람이 더 멀리 가 있다.)
@@ -1547,8 +1534,8 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
   }else document.documentElement.dataset.mode='solo';
   if(canEmbed)document.documentElement.classList.add('emb');
 
-  /* ---------- colour: the deck's own look, or the same parts on deep grounds for a dark room ---------- */
-  const BASE=slides.map(s=>s.dataset.look||'dawn'),SETS={day:{},night:{dawn:'dusk',gold:'umber'}},LOOKS=[['day','밝은 방'],['night','어두운 방']];
+  /* ---------- black on white, or its negative on every page for a dark room ---------- */
+  const BASE=slides.map(s=>s.dataset.look||'light'),SETS={day:{},night:{light:'dark'}},LOOKS=[['day','밝은 방'],['night','어두운 방']];
   let look='day';
   function rootLook(){document.documentElement.dataset.look=slides[cur].dataset.look}   // the frame around the slide follows the slide on screen
   function setLook(k,quiet){if(!SETS[k])k='day';look=k;store.set('look3',k);

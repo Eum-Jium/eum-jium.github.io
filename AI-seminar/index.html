@@ -309,14 +309,14 @@ html[data-mode="audience"] .shoot{display:none}
 #stair text{font-family:var(--serif);font-weight:800;font-size:46px;fill:var(--ink)}
 #stair text.q{fill:var(--accent)}
 #stair .par{font-family:var(--sans);font-weight:500;font-size:32px;fill:var(--soft)}
-/* the page that opens each part: a breath. The sun stands on the day's arc — morning, noon, evening */
+/* the page that opens each part: a breath. The part's name above a rule; under the rule, where we are among the three */
 .slide.part{justify-content:flex-end;gap:6px;padding-bottom:268px}
 .part .pn{font-family:var(--serif);font-weight:800;font-size:60px;line-height:1.2;color:var(--accent)}
 .part .t-state{font-size:118px;line-height:1.22}
-.part .arc{position:absolute;inset:0;width:100%;height:100%}
-.part .arc .path{fill:none;stroke:var(--soft);stroke-width:4;stroke-dasharray:1 18;stroke-linecap:round}
-.part .arc .hz{fill:none;stroke:var(--ink);stroke-width:4}
-.part .arc .sun{fill:var(--accent)}
+.part .where{position:absolute;left:128px;right:128px;top:838px;margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);border-top:4px solid var(--ink)}
+.part .where li{position:relative;padding-top:22px;font-size:30px;line-height:1.2;color:var(--soft)}
+.part .where li.now{color:var(--ink);font-weight:700}
+.part .where li.now::before{content:"";position:absolute;left:0;right:48px;top:-10px;height:16px;background:var(--accent)}
 /* 24 Luke 10, turn by turn */
 .turns{display:flex;flex-direction:column;gap:24px}
 .turn{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:baseline;transition:opacity .6s ease}
@@ -412,9 +412,9 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 
 <!-- 2 간지 1부 -->
 <section class="slide part" id="s-part1" data-look="dawn" data-note="간지. 한숨 끊고 간다. 1부 — AI가 뭔지.
-오른쪽의 해는 하루의 길 위에 있다. 1부는 아침, 2부는 한낮, 3부는 저녁이다.
-(11월 26일에 네가 ‘1부 2부 3부를 나누는 간지가 필요해, 그래야 한숨 끊고 가지’라고 해서 넣었다.)">
-  <svg class="arc" viewBox="0 0 1920 1080" aria-hidden="true"><path class="path" d="M952 840Q1372 -60 1792 840"/><path class="hz" d="M128 840H1792"/><circle class="sun" cx="1092" cy="590" r="62"/></svg>
+줄 아래의 1부·2부·3부는 지금 어디인지를 보여 준다.
+(11월 26일에 네가 ‘1부 2부 3부를 나누는 간지가 필요해, 그래야 한숨 끊고 가지’라고 해서 넣었다. 처음에 Claude가 그려 넣었던 해 그림은 네가 ‘빨간 점이 무슨 의미인지 모르겠다’고 해서 뺐다.)">
+  <ol class="where" aria-hidden="true"><li class="now">1부</li><li>2부</li><li>3부</li></ol>
   <p class="pn">1부</p>
   <h2 class="t-state">AI가 뭔지</h2>
 </section>
@@ -627,7 +627,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 <!-- 12 간지 2부 -->
 <section class="slide part" id="s-part2" data-look="gold" data-note="간지. 질의응답이 끝나면 이 장으로 넘긴다. 2부 — AI를 어떻게 잘 쓸까.
 2부 전체 흐름은 ‘내 활을 만들어 가는 과정’이다.">
-  <svg class="arc" viewBox="0 0 1920 1080" aria-hidden="true"><path class="path" d="M952 840Q1372 -60 1792 840"/><path class="hz" d="M128 840H1792"/><circle class="sun" cx="1372" cy="390" r="62"/></svg>
+  <ol class="where" aria-hidden="true"><li>1부</li><li class="now">2부</li><li>3부</li></ol>
   <p class="pn">2부</p>
   <h2 class="t-state">AI를 어떻게<br>잘 쓸까</h2>
 </section>
@@ -774,7 +774,7 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 <!-- 19 간지 3부 -->
 <section class="slide part" id="s-part3" data-look="wine" data-note="간지. 3부 — 그 내가 누구에게 가는지.
 이 장을 띄워 놓고 다리 말을 한다: ‘방금 AI를 기억장치로 쓰라고 했습니다. 그런데 그걸 쓰면 안 되는 곳이 있습니다. 시험장입니다.’ 그리고 다음 장(수능 21번)으로 넘긴다.">
-  <svg class="arc" viewBox="0 0 1920 1080" aria-hidden="true"><path class="path" d="M952 840Q1372 -60 1792 840"/><path class="hz" d="M128 840H1792"/><circle class="sun" cx="1652" cy="590" r="62"/></svg>
+  <ol class="where" aria-hidden="true"><li>1부</li><li>2부</li><li class="now">3부</li></ol>
   <p class="pn">3부</p>
   <h2 class="t-state">그 내가<br>누구에게 가는지</h2>
 </section>

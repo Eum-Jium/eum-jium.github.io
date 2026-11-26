@@ -131,17 +131,17 @@ html[data-mode="audience"] .slot>:not(.aud-only){display:none}
 .four{display:grid;grid-template-columns:repeat(4,1fr);border-top:4px solid var(--ink)}
 .four .f{display:flex;flex-direction:column;gap:12px;padding:20px 24px 0 28px;border-left:1.5px solid var(--line);min-width:0}
 .four .f:first-child{border-left:0;padding-left:0}
-.four b{font-family:var(--serif);font-weight:800;font-size:104px;line-height:1.15;letter-spacing:-.02em;transition:color .5s ease,opacity .5s ease}
+.four b{font-family:var(--serif);font-weight:800;font-size:80px;line-height:1.15;letter-spacing:-.02em;transition:color .5s ease,opacity .5s ease}
 .four small{font-size:30px;line-height:1.45;color:var(--soft)}
 .four small i{display:block;font-style:normal;font-family:var(--serif);font-weight:800;font-size:44px;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.25}
-.zone{position:relative;height:266px;flex:none}
+.zone{position:relative;height:400px;flex:none}
 .stmt{justify-content:flex-start;gap:30px;padding-top:40px}
-.brace{height:34px;border:4px solid var(--ink);border-top:0;position:absolute;left:0;right:0;top:162px}
+.brace{height:34px;border:4px solid var(--ink);border-top:0;position:absolute;left:0;right:0;top:272px}
 .brace::after{content:"";position:absolute;left:50%;top:100%;width:4px;height:30px;margin-left:-2px;background:var(--ink)}
-#s-lang .four b{opacity:.42}
-#s-lang .four .f.on b{opacity:1;color:var(--accent)}
-#s-lang[data-at="3"] .four b{opacity:1}
-.flow{height:64px;position:absolute;left:0;right:0;top:154px}
+#s-lang .four b,#s-lang .four .ic{opacity:.42}
+#s-lang .four .f.on b,#s-lang .four .f.on .ic{opacity:1;color:var(--accent)}
+#s-lang[data-at="3"] .four b,#s-lang[data-at="3"] .four .ic{opacity:1}
+.flow{height:64px;position:absolute;left:0;right:0;top:264px}
 .flow svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 
 /* the Odyssey pages */
@@ -220,7 +220,7 @@ html[data-mode="audience"] .slot>:not(.aud-only){display:none}
 .three-w{display:grid;grid-template-columns:repeat(3,1fr);border-top:4px solid var(--ink)}
 .three-w>div{padding:18px 24px 0 32px;border-left:1.5px solid var(--line);display:flex;flex-direction:column;gap:8px}
 .three-w>div:first-child{border-left:0;padding-left:0}
-.three-w b{font-family:var(--serif);font-weight:800;font-size:104px;line-height:1.15;letter-spacing:-.02em}
+.three-w b{font-family:var(--serif);font-weight:800;font-size:84px;line-height:1.15;letter-spacing:-.02em}
 .three-w small{font-size:30px;color:var(--soft)}
 .three-w .none b{transition:color .6s ease}
 #s-memory:not([data-at="0"]) .three-w .none b{color:var(--paper);-webkit-text-stroke:7px var(--ink);paint-order:stroke fill}
@@ -305,15 +305,84 @@ html[data-mode="audience"] .shoot{display:none}
 .part .where li{position:relative;padding-top:22px;font-size:30px;line-height:1.2;color:var(--soft)}
 .part .where li.now{color:var(--ink);font-weight:700}
 .part .where li.now::before{content:"";position:absolute;left:0;right:48px;top:-10px;height:16px;background:var(--accent)}
+/* ---------- pictures: one plain line drawing for what the page says. Each sign is drawn once (the sprite at the top of the deck) ---------- */
+.pic{display:block;flex:none;width:96px;height:96px;overflow:visible;color:var(--ink);fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.pic.ar{width:84px;height:28px;color:var(--soft)}
+.askpic .ar,.flow3 .ar{width:116px;height:38px;stroke-width:4}
+.four .ic{width:132px;height:132px;stroke-width:4;margin:0 0 -4px -8px;transition:opacity .5s ease}
+/* 5 */
+.askpic{display:flex;align-items:center;gap:40px}
+.askpic .word{display:flex;align-items:flex-end;gap:22px;font-family:var(--serif);font-weight:800;font-size:92px;line-height:1.1;border:6px solid var(--ink);border-radius:18px;padding:30px 46px 36px;white-space:nowrap}
+.askpic .word i{display:block;width:250px;height:11px;background:var(--ink);margin-bottom:9px}
+.askpic .q{font-family:var(--serif);font-weight:800;font-size:160px;line-height:1}
+.askpic .film{width:270px;height:270px;stroke-width:2.2;margin:-30px 0}
+/* 10 */
+.recs{display:flex;align-items:center;gap:40px}
+.rec{display:flex;align-items:center}
+.rec .pic{width:88px;height:88px}
+.rec span{font-size:28px;font-weight:700;line-height:1;border:3px solid var(--ink);border-radius:999px;padding:9px 20px;margin-left:-8px;background:var(--paper);white-space:nowrap}
+.recs p{font-size:30px;line-height:1.42;font-weight:500;margin-left:12px}
+.recs p span{display:block}
+/* 11 */
+.guess{display:grid;grid-template-columns:repeat(3,1fr);border-top:4px solid var(--ink)}
+.guess>div{padding:14px 20px 0 26px;border-left:1.5px solid var(--line);display:flex;flex-direction:column;gap:4px;min-width:0}
+.guess>div:first-child{border-left:0;padding-left:0}
+.guess small{font-size:26px;color:var(--soft)}
+.guess .g{height:104px;display:flex;align-items:center;gap:18px;color:var(--ink)}
+.guess b{font-family:var(--serif);font-weight:800;font-size:36px;line-height:1.3}
+.guess .gw{font-family:var(--serif);font-weight:800;font-size:60px;line-height:1;white-space:nowrap;gap:16px}
+.guess .gw i{display:block;width:180px;height:60px;background:var(--ink);border-radius:5px}
+.guess .nz,.guess .pc{width:100px;height:100px;flex:none}
+.guess .wv{width:330px;height:100px;flex:none}
+.eq{display:flex;align-items:center;gap:18px;font-family:var(--serif);font-weight:800;font-size:50px;line-height:1;color:var(--ink)}
+.eq .lb{font-family:var(--sans);font-size:30px;font-weight:700}
+.eq>span:not(.lb){margin:0 8px}
+.eq .fm{width:64px;height:64px;stroke-width:6}
+/* 16, 17, 18 */
+.pair .pic{width:130px;height:130px;stroke-width:3.8;margin:0 0 4px -6px}
+.cardpic{width:200px;height:200px;stroke-width:2.8;margin-left:-10px}
+.t-head.hd{display:flex;align-items:center;gap:18px}
+.t-head.hd .pic{width:60px;height:60px;stroke-width:6.5}
+.three-w .pic{width:112px;height:112px;stroke-width:4.4;margin:0 0 -6px -6px}
+/* 20 */
+.hund{display:flex;align-items:center;gap:30px}
+.hund svg{width:270px;height:270px;flex:none}
+.hund circle{fill:var(--grain)}
+.hund circle.ok{fill:var(--ink)}
+.hund p{font-size:25px;line-height:1.5;color:var(--soft)}
+.hund p b{display:block;font-family:var(--serif);font-weight:800;font-size:40px;line-height:1.3;color:var(--ink);margin-bottom:8px}
+.hund p span{font-size:21px}
+/* 21 */
+.flow3{display:flex;align-items:center;gap:34px;margin-top:8px}
+.flow3>div{display:flex;align-items:center;gap:18px;font-size:36px;font-weight:700;white-space:nowrap}
+.flow3 .pic:not(.ar){width:112px;height:112px;stroke-width:4.4}
+/* 24 */
+.banpic{width:300px;height:300px;stroke-width:3.4}
+/* 27 */
+.stairq{width:100%;height:300px;flex:none;display:block}
+.stairq path{fill:none;stroke-width:6;stroke-linejoin:round;stroke-linecap:round}
+.stairq .past{stroke:var(--grain)}
+.stairq .dash{stroke:var(--ink);stroke-dasharray:4 18}
+.stairq text{font-family:var(--serif);font-weight:800;font-size:150px;fill:var(--ink)}
+/* 28 */
+.art{margin:0;flex:none;width:820px}
+.art img{display:block;width:100%;height:auto}
+[data-look="dark"] .lineart{filter:invert(1) contrast(1.5) brightness(1.15);mix-blend-mode:screen}
+[data-look="light"] .lineart{mix-blend-mode:multiply}
+.art figcaption{font-size:20px;color:var(--soft);margin-top:10px}
+#s-beggar .bigq{font-size:80px}
 /* 24 Luke 10, turn by turn */
-.turns{display:flex;flex-direction:column;gap:24px}
-.turn{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:baseline;transition:opacity .6s ease}
+.turns{display:flex;flex-direction:column;gap:14px}
+.turn{display:flex;align-items:center;gap:22px;transition:opacity .6s ease}
+.turn.j{flex-direction:row-reverse}
 .turn .who{font-size:27px;font-weight:700;color:var(--soft);white-space:nowrap}
 .turn .who sup{font-weight:400;font-size:19px;margin-left:8px;vertical-align:baseline;font-variant-numeric:tabular-nums}
-.turn p{font-family:var(--serif);font-weight:700;font-size:46px;line-height:1.4;transition:color .6s ease}
-.turn.story p{font-family:var(--sans);font-weight:400;font-size:28px;color:var(--soft)}
+.turn p{font-family:var(--serif);font-weight:700;font-size:36px;line-height:1.35;max-width:1230px;border:3px solid var(--ink);border-radius:30px 30px 30px 6px;padding:9px 30px 11px;transition:color .6s ease,background .6s ease}
+.turn.j p{border-radius:30px 30px 6px 30px}
+.turn.story{justify-content:center}
+.turn.story p{font-family:var(--sans);font-weight:400;font-size:26px;color:var(--soft);border:0;padding:0;max-width:none}
 #s-luke[data-at="6"] .turn:not(.key){opacity:.36}
-#s-luke[data-at="6"] .turn.key p{color:var(--accent)}
+#s-luke[data-at="6"] .turn.key p{background:var(--ink);color:var(--paper)}
 
 /* chrome */
 #bar{position:fixed;left:0;bottom:0;height:5px;background:#8C8C8C;transition:width .4s ease;z-index:5}
@@ -386,6 +455,25 @@ html[data-mode="audience"] #phone{display:flex;flex-direction:column;gap:14px;po
 </style>
 
 <div id="viewport"><div id="stage">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-hand" viewBox="0 0 96 96"><rect x="14" y="16" width="50" height="24" rx="5"/><path d="M64 22c9 1 15 6 18 14M42 40v44"/></symbol>
+<symbol id="i-talk" viewBox="0 0 96 96"><path d="M20 14h56a8 8 0 0 1 8 8v34a8 8 0 0 1-8 8H46L28 82V64h-8a8 8 0 0 1-8-8V22a8 8 0 0 1 8-8z"/><path d="M28 32h40M28 46h26"/></symbol>
+<symbol id="i-pic" viewBox="0 0 96 96"><rect x="10" y="16" width="76" height="64" rx="5"/><path d="M10 68l24-24 18 16 12-10 22 20"/><circle cx="66" cy="34" r="6"/></symbol>
+<symbol id="i-music" viewBox="0 0 96 96"><path d="M36 68V24l38-8v44"/><ellipse cx="26" cy="68" rx="10" ry="8" fill="currentColor" stroke="none"/><ellipse cx="64" cy="60" rx="10" ry="8" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-film" viewBox="0 0 96 96"><rect x="8" y="18" width="80" height="60" rx="7"/><path d="M40 35l22 13-22 13z" fill="currentColor"/></symbol>
+<symbol id="i-doc" viewBox="0 0 96 96"><path d="M24 10h34l16 16v60H24z"/><path d="M58 10v16h16M36 46h26M36 58h26M36 70h16"/></symbol>
+<symbol id="i-chat" viewBox="0 0 96 96"><path d="M14 12h44a6 6 0 0 1 6 6v22a6 6 0 0 1-6 6H34L22 58V46h-8a6 6 0 0 1-6-6V18a6 6 0 0 1 6-6z"/><path d="M48 58h34a6 6 0 0 1 6 6v12a6 6 0 0 1-6 6h-6v10l-12-10H48a6 6 0 0 1-6-6V64a6 6 0 0 1 6-6z"/></symbol>
+<symbol id="i-none" viewBox="0 0 96 96"><rect x="14" y="14" width="68" height="68" rx="9" stroke-dasharray="1 13"/></symbol>
+<symbol id="i-target" viewBox="0 0 96 96"><circle cx="48" cy="48" r="38"/><circle cx="48" cy="48" r="23"/><circle cx="48" cy="48" r="7" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-updown" viewBox="0 0 96 96"><path d="M48 8v26M36 22l12 12 12-12M48 88V62M36 74l12-12 12 12"/><circle cx="48" cy="48" r="6" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-cam" viewBox="0 0 96 96"><path d="M20 30h10l6-10h24l6 10h10a8 8 0 0 1 8 8v32a8 8 0 0 1-8 8H20a8 8 0 0 1-8-8V38a8 8 0 0 1 8-8z"/><circle cx="48" cy="53" r="13"/></symbol>
+<symbol id="i-phone" viewBox="0 0 96 96"><rect x="28" y="8" width="40" height="80" rx="8"/><path d="M42 76h12"/></symbol>
+<symbol id="i-ai" viewBox="0 0 96 96"><rect x="12" y="12" width="72" height="72" rx="13"/><text x="48" y="60" text-anchor="middle" font-family="IBM Plex Sans KR,sans-serif" font-size="32" font-weight="700" fill="currentColor" stroke="none">AI</text></symbol>
+<symbol id="i-ban" viewBox="0 0 96 96"><circle cx="48" cy="48" r="40"/><path d="M20 20l56 56"/></symbol>
+<symbol id="i-card" viewBox="0 0 96 96"><path d="M10 26l38-10 38 10v54L48 70 10 80z"/><path d="M48 16v54"/><path d="M67 36l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 96 32"><path d="M4 16h84M74 4l14 12-14 12"/></symbol>
+</defs></svg>
 
 <!-- 1 표지 -->
 <section class="slide" id="s-cover" data-look="light" data-note="표지. 제목과 QR만 있다. QR이 무엇인지는 말로 알려 준다 — 찍으면 이 발표 화면이 휴대폰에 그대로 열리고, 내가 넘기는 대로 따라온다. 질문이 나오는 장에서는 휴대폰 아래쪽에 답하는 칸이 열린다.
@@ -470,10 +558,12 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 </section>
 
 <!-- 5 물음 -->
-<section class="slide center" id="s-ask" data-look="light" data-part="1부  AI가 뭔지" data-note="물음만 띄운다.
+<section class="slide center" id="s-ask" data-look="light" data-part="1부  AI가 뭔지" style="justify-content:center;gap:64px" data-note="물음만 띄운다.
 이어서 말로: ‘그 답을 찾기 위해 우리는 이 낱말이라는 것이 무엇인지, 언어라는 게 무엇인지 잠깐 생각해볼 필요가 있습니다.’
-답은 {s-video}쪽에서 돌아온다.">
+답은 {s-video}쪽에서 돌아온다.
+그림(11월 26일): 왼쪽은 앞 쪽의 빈칸 문장, 오른쪽은 영상 화면, 가운데는 물음표. 물음을 그대로 그린 것이다.">
   <h2 class="t-state">어떻게 낱말 맞히는 기계가<br>영상까지 만들 수 있는 걸까?</h2>
+  <div class="askpic" aria-hidden="true"><div class="word">저 오늘 <i></i></div><svg class="pic ar" aria-hidden="true"><use href="#i-arrow"/></svg><b class="q">?</b><svg class="pic ar" aria-hidden="true"><use href="#i-arrow"/></svg><svg class="pic film" aria-hidden="true"><use href="#i-film"/></svg></div>
 </section>
 
 <!-- 6 넷 -->
@@ -481,13 +571,14 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 네 가지가 동물에게 없는 게 아니다. 네 가지가 모두 있지만 사람이 뛰어나다는 것.
 클릭 1 — 동물의 예가 하나씩 뜬다.
 ※ 동물 예시 네 줄과 아래 한 줄은 Claude가 붙인 받침이다. 필요 없으면 말해 줘, 뺄게. (침팬지의 도구, 버빗원숭이의 경고음, 정원사새의 정자 꾸미기, 혹등고래의 노래)
-네 낱말은 {s-sci}쪽까지 같은 자리에 그대로 있고, {s-lang}쪽에서 다시 나온다. 아래 문장만 바뀐다.">
+네 낱말은 {s-sci}쪽까지 같은 자리에 그대로 있고, {s-lang}쪽에서 다시 나온다. 아래 문장만 바뀐다.
+그림(11월 26일): 넷 위에 기호를 하나씩 붙였다. 망치(손재주), 말풍선(말), 액자(그림), 음표(음악). 이 기호는 넷이 나오는 네 쪽에 똑같이 나온다.">
   <div class="zone">
     <div class="four">
-      <div class="f"><b>손재주</b><small data-step="1">침팬지도 나뭇가지를 다듬어 도구로 쓴다</small></div>
-      <div class="f"><b>말</b><small data-step="1">버빗원숭이도 적에 따라 다른 소리로 알린다</small></div>
-      <div class="f"><b>그림</b><small data-step="1">정원사새도 색을 골라 제 정자를 꾸민다</small></div>
-      <div class="f"><b>음악</b><small data-step="1">혹등고래도 노래를 한다</small></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-hand"/></svg><b>손재주</b><small data-step="1">침팬지도 나뭇가지를 다듬어 도구로 쓴다</small></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-talk"/></svg><b>말</b><small data-step="1">버빗원숭이도 적에 따라 다른 소리로 알린다</small></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-pic"/></svg><b>그림</b><small data-step="1">정원사새도 색을 골라 제 정자를 꾸민다</small></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-music"/></svg><b>음악</b><small data-step="1">혹등고래도 노래를 한다</small></div>
     </div>
   </div>
   <div class="col grow stmt">
@@ -501,10 +592,10 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 (가드너의 다중지능 받침 줄은 11월 26일에 뺐다. 넷과 딱 맞지 않아 오히려 헷갈린다.)">
   <div class="zone">
     <div class="four">
-      <div class="f"><b>손재주</b></div>
-      <div class="f"><b>말</b></div>
-      <div class="f"><b>그림</b></div>
-      <div class="f"><b>음악</b></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-hand"/></svg><b>손재주</b></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-talk"/></svg><b>말</b></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-pic"/></svg><b>그림</b></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-music"/></svg><b>음악</b></div>
     </div>
     <div class="brace"></div>
   </div>
@@ -521,10 +612,10 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 다음 장으로 넘어가며(말로): 그런데 넷 가운데 왜 말인가.">
   <div class="zone">
     <div class="four">
-      <div class="f"><b>손재주</b><small data-step="1"><i>1961</i>공장에 들어간 첫 산업용 로봇</small></div>
-      <div class="f"><b>말</b><small data-step="1"><i>1954</i>기계 번역의 첫 공개 시연</small></div>
-      <div class="f"><b>그림</b><small data-step="1"><i>1965</i>컴퓨터가 그린 그림의 첫 전시</small></div>
-      <div class="f"><b>음악</b><small data-step="1"><i>1957</i>컴퓨터가 쓴 첫 현악 사중주</small></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-hand"/></svg><b>손재주</b><small data-step="1"><i>1961</i>공장에 들어간 첫 산업용 로봇</small></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-talk"/></svg><b>말</b><small data-step="1"><i>1954</i>기계 번역의 첫 공개 시연</small></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-pic"/></svg><b>그림</b><small data-step="1"><i>1965</i>컴퓨터가 그린 그림의 첫 전시</small></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-music"/></svg><b>음악</b><small data-step="1"><i>1957</i>컴퓨터가 쓴 첫 현악 사중주</small></div>
     </div>
   </div>
   <div class="col grow stmt">
@@ -573,20 +664,20 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 클릭 1 — 그런데 사람이 남긴 기록은 글만이 아니다. 그림에도, 노래에도, 영상에도 말이 붙어 있다. 제목, 설명, 가사, 자막.
 클릭 2 — 그래서 기계는 말과 함께 그림을 배우고, 말과 함께 소리를 배웠다. (말로 설명해도 된다: 그래서 말로 시키면 그림이 나온다. 말로 그림을 시키고, 음악을 시키고, 손을 시킨다.)
 클릭 3 — 언어가 풀리고 나니, 나머지 셋이 폭발적으로 발전하고 있다. 말에서 나머지 셋으로 선이 간다.
-※ 11월 26일에 ‘그래서, 영상까지 만든다가 너무 빠르다, 그 쪽을 더 잘 설명해서 두 쪽으로’라고 해서 이 쪽과 다음 쪽으로 나눴다. 클릭 1과 2의 문장은 Claude가 썼다. 처음과 클릭 3은 네 문장이다.">
+※ 11월 26일에 ‘그래서, 영상까지 만든다가 너무 빠르다, 그 쪽을 더 잘 설명해서 두 쪽으로’라고 해서 이 쪽과 다음 쪽으로 나눴다. 클릭 1과 2의 문장은 Claude가 썼다. 처음과 클릭 3은 네 문장이다.
+그림(11월 26일): 클릭 1의 글 두 줄을 그림으로 바꿨다. 그림에는 제목과 설명이, 노래에는 가사가, 영상에는 자막이 붙어 있다. 말로는: 사람이 남긴 기록은 글만이 아니다.">
   <div class="zone">
     <div class="four">
-      <div class="f"><b>손재주</b></div>
-      <div class="f on"><b>말</b></div>
-      <div class="f"><b>그림</b></div>
-      <div class="f"><b>음악</b></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-hand"/></svg><b>손재주</b></div>
+      <div class="f on"><svg class="pic ic" aria-hidden="true"><use href="#i-talk"/></svg><b>말</b></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-pic"/></svg><b>그림</b></div>
+      <div class="f"><svg class="pic ic" aria-hidden="true"><use href="#i-music"/></svg><b>음악</b></div>
     </div>
     <div class="flow" data-step="3"><svg viewBox="0 0 1664 64" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="var(--accent)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><path d="M150 14V46H1400V14M984 46V14M496 6V46"/><path d="M136 28 150 12 164 28M970 28 984 12 998 28M1386 28 1400 12 1414 28"/></g><circle cx="496" cy="46" r="10" fill="var(--accent)"/></svg></div>
   </div>
-  <div class="col grow stmt" style="gap:22px;padding-top:26px">
+  <div class="col grow stmt" style="gap:18px;padding-top:14px">
     <p class="t-line s">AI가 평균적으로 맞추고 있는 것이 바로 그 기록을 통해 배운 대화다.</p>
-    <p class="t-line s" data-step="1">그런데 사람이 남긴 기록은 글만이 아니다. 그림에도, 노래에도, 영상에도 말이 붙어 있다. <span class="soft" style="font-family:var(--sans);font-weight:500;font-size:34px">제목, 설명, 가사, 자막.</span></p>
-    <p class="t-line s" data-step="2">그래서 기계는 말과 함께 그림을 배우고, 말과 함께 소리를 배웠다.</p>
+    <div class="recs" data-step="1"><div class="rec"><svg class="pic" aria-hidden="true"><use href="#i-pic"/></svg><span>제목 · 설명</span></div><div class="rec"><svg class="pic" aria-hidden="true"><use href="#i-music"/></svg><span>가사</span></div><div class="rec"><svg class="pic" aria-hidden="true"><use href="#i-film"/></svg><span>자막</span></div><p><span>그림에도, 노래에도, 영상에도 말이 붙어 있다.</span><span data-step="2">그래서 기계는 말과 함께 그림을, 말과 함께 소리를 배웠다.</span></p></div>
     <h2 class="t-line b" data-step="3">언어가 풀리고 나니, 나머지 셋이<br>폭발적으로 발전하고 있다.</h2>
   </div>
 </section>
@@ -599,14 +690,19 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 클릭 3 — AI는 이제 문명사회를 이룩하게 한 인간 지능의 핵심을 따라 하게 되었다.
 이 장을 띄워 둔 채 질의응답. 장도 카드도 없다. 생각이 식을 때까지 서로 묻고 답한다.
 ※ 클릭 1의 세 칸과 ‘맞히는 것만 바뀌었다’, ‘영상은 그림과 소리를 이어 놓은 것이다’는 Claude가 썼다. ‘그래서, 영상까지 만든다’와 마지막 문장은 네 문장이다.
-(받침: 그림을 만드는 AI는 그림에 잡음을 섞어 흐려 놓고 원래 그림을 되찾는 연습으로 배운다. 그림마다 붙어 있는 설명 글과 함께 배워서, 글로 시키면 그 그림을 맞혀 낸다.)">
+(받침: 그림을 만드는 AI는 그림에 잡음을 섞어 흐려 놓고 원래 그림을 되찾는 연습으로 배운다. 그림마다 붙어 있는 설명 글과 함께 배워서, 글로 시키면 그 그림을 맞혀 낸다.)
+그림(11월 26일): 세 칸에 그림을 넣었다. 가린 낱말, 흐린 그림에서 또렷한 그림으로, 점선으로 남은 다음 소리. ‘영상은 그림과 소리를 이어 놓은 것이다’는 화면에서 글 대신 그림(그림 + 소리 = 영상)으로 바꿨다. 말로 하면 된다.">
   <p class="t-lead">어떻게 낱말 맞히는 기계가 영상까지 만들 수 있는 걸까?</p>
-  <div class="col" data-step="1" style="gap:16px">
-    <div class="kept big"><div><small>말</small><b>가려 놓은 낱말을 맞힌다</b></div><div><small>그림</small><b>흐려 놓은 그림을 맞힌다</b></div><div><small>소리</small><b>이어질 소리를 맞힌다</b></div></div>
+  <div class="col" data-step="1" style="gap:14px">
+    <div class="guess">
+      <div><small>말</small><div class="g gw" aria-hidden="true">저 오늘<i></i></div><b>가려 놓은 낱말을 맞힌다</b></div>
+      <div><small>그림</small><div class="g" aria-hidden="true"><svg class="nz" viewBox="0 0 100 100" aria-hidden="true"><defs><pattern id="nzp" width="12" height="12" patternUnits="userSpaceOnUse"><g fill="currentColor"><circle cx="2.5" cy="3" r="1.8"/><circle cx="8.5" cy="8.5" r="2.4"/><circle cx="9.5" cy="2" r="1"/><circle cx="3.5" cy="9.5" r="1.2"/></g></pattern></defs><rect x="3" y="3" width="94" height="94" rx="5" fill="url(#nzp)" stroke="currentColor" stroke-width="5"/></svg><svg class="pic ar" aria-hidden="true"><use href="#i-arrow"/></svg><svg class="pic pc" aria-hidden="true"><use href="#i-pic"/></svg></div><b>흐려 놓은 그림을 맞힌다</b></div>
+      <div><small>소리</small><div class="g" aria-hidden="true"><svg class="wv" viewBox="0 0 330 100" aria-hidden="true"><g fill="currentColor"><rect x="6" y="35" width="14" height="30" rx="4"/><rect x="33" y="19" width="14" height="62" rx="4"/><rect x="60" y="5" width="14" height="90" rx="4"/><rect x="87" y="26" width="14" height="48" rx="4"/><rect x="114" y="12" width="14" height="76" rx="4"/><rect x="141" y="30" width="14" height="40" rx="4"/><rect x="168" y="8" width="14" height="84" rx="4"/><rect x="195" y="22" width="14" height="56" rx="4"/></g><g fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="5 6"><rect x="222" y="17" width="14" height="66" rx="4"/><rect x="249" y="28" width="14" height="44" rx="4"/><rect x="276" y="14" width="14" height="72" rx="4"/><rect x="303" y="32" width="14" height="36" rx="4"/></g></svg></div><b>이어질 소리를 맞힌다</b></div>
+    </div>
     <p class="t-lead" style="color:var(--ink)">맞히는 것만 바뀌었다.</p>
   </div>
-  <div class="col" data-step="2" style="gap:6px;margin-top:10px">
-    <p class="t-line">영상은 그림과 소리를 이어 놓은 것이다.</p>
+  <div class="col" data-step="2" style="gap:8px">
+    <div class="eq" aria-label="영상은 그림과 소리를 이어 놓은 것이다"><span class="lb">그림</span><svg viewBox="0 0 154 64" width="154" height="64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"><rect x="3" y="14" width="44" height="36" rx="4"/><rect x="55" y="14" width="44" height="36" rx="4"/><rect x="107" y="14" width="44" height="36" rx="4"/></g></svg><span>+</span><span class="lb">소리</span><svg viewBox="0 0 120 64" width="120" height="64" aria-hidden="true"><g fill="currentColor"><rect x="4" y="23" width="10" height="18" rx="4"/><rect x="24" y="12" width="10" height="40" rx="4"/><rect x="44" y="3" width="10" height="58" rx="4"/><rect x="64" y="17" width="10" height="30" rx="4"/><rect x="84" y="8" width="10" height="48" rx="4"/><rect x="104" y="20" width="10" height="24" rx="4"/></g></svg><span>=</span><span class="lb">영상</span><svg class="pic fm" aria-hidden="true"><use href="#i-film"/></svg></div>
     <p class="t-state acc">그래서, 영상까지 만든다.</p>
   </div>
   <h2 class="t-line b" data-step="3" style="margin-top:auto">AI는 이제 문명사회를 이룩하게 한<br>인간 지능의 핵심을 따라 하게 되었다.</h2>
@@ -692,8 +788,8 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 ※ 두 낱말 아래 작은 줄(놀이와 잇는 말)과 ‘AI는 맞장구를 잘 친다’는 Claude가 붙였다.">
   <h2 class="t-title">AI를 잘 쓰려면, 두 가지</h2>
   <div class="pair">
-    <div data-step="1"><p class="k">하나</p><p class="v">정확한 목표</p><p class="x">아까 그 숫자처럼, 내 안에 정해 둔 것</p></div>
-    <div data-step="2"><p class="k">둘</p><p class="v">업다운을 끝까지</p><p class="x">맞힐 때까지 멈추지 않는다</p></div>
+    <div data-step="1"><svg class="pic" aria-hidden="true"><use href="#i-target"/></svg><p class="k">하나</p><p class="v">정확한 목표</p><p class="x">아까 그 숫자처럼, 내 안에 정해 둔 것</p></div>
+    <div data-step="2"><svg class="pic" aria-hidden="true"><use href="#i-updown"/></svg><p class="k">둘</p><p class="v">업다운을 끝까지</p><p class="x">맞힐 때까지 멈추지 않는다</p></div>
   </div>
   <div class="col" style="margin-top:auto;gap:14px">
     <p class="t-lead" data-step="3">AI는 맞장구를 잘 친다. 우리가 맞장구에 좋은 점수를 주기 때문이다.</p>
@@ -713,12 +809,13 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 화면에 올리기 어려운 말이 와도 고르지 않으면 그만이다. 다만 오른쪽 목록에는 그대로 보인다.
 다음 쪽으로 넘어가며(말로): Claude는 카드를 받을 사람을 몰랐다. 우리가 말해 준 만큼만 알았다.">
   <div class="scene center" data-until="1" style="gap:30px">
+    <svg class="pic cardpic" aria-hidden="true"><use href="#i-card"/></svg>
     <p class="t-lead">실습</p>
     <h2 class="t-state">성탄 카드 한 장을,<br>여러분의 말로 써 봅니다.</h2>
     <p class="t-lead">휴대폰에 Claude에게 시킬 말을 적어 주세요. 그 가운데 하나를 골라, 제가 Claude에 그대로 칩니다.</p>
   </div>
   <div class="scene" data-from="1" style="gap:18px">
-    <div class="udhead"><h2 class="t-head">성탄 카드 한 장</h2><div class="dock sm"><i class="dot"></i><span><b class="dcount" data-k="prompt">0</b>개 도착</span></div></div>
+    <div class="udhead"><h2 class="t-head hd"><svg class="pic" aria-hidden="true"><use href="#i-card"/></svg>성탄 카드 한 장</h2><div class="dock sm"><i class="dot"></i><span><b class="dcount" data-k="prompt">0</b>개 도착</span></div></div>
     <div class="cols" style="gap:64px;align-items:stretch">
       <div class="col" style="flex:1;gap:14px;min-height:0">
         <p class="t-small">Claude에게 친 말</p>
@@ -741,12 +838,13 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 그다음 — 좋은 기억이 AI를 잘 쓰는 방법이다.
 그다음 — 그래서 나는 멤트레일을 만들었다. 한마디로만. 시스템 설명은 하지 않는다.
 다음은 3부 간지다. 다리 말(‘방금 AI를 기억장치로 쓰라고 했습니다 … 시험장입니다’)은 간지를 띄워 놓고 한다.
-※ 11월 25일에 이 쪽(그때는 14쪽)이 뜬금없다고 해서 이 쪽을 실습 뒤로 옮기고, 맨 위 한 줄(‘Claude는 카드를 받을 사람을 모른다.’)을 넣었다. 그 줄과 셋 아래 작은 줄(AI가 한다 / AI가 읽었다 / AI에게 없다)은 Claude가 붙인 것이다.">
+※ 11월 25일에 이 쪽(그때는 14쪽)이 뜬금없다고 해서 이 쪽을 실습 뒤로 옮기고, 맨 위 한 줄(‘Claude는 카드를 받을 사람을 모른다.’)을 넣었다. 그 줄과 셋 아래 작은 줄(AI가 한다 / AI가 읽었다 / AI에게 없다)은 Claude가 붙인 것이다.
+그림(11월 26일): 대화(말풍선 둘), 기록(문서), 기억(점선으로만 남은 빈 칸)에 기호를 붙였다.">
   <h2 class="t-title">Claude는 카드를 받을 사람을 모른다.</h2>
   <div class="three-w">
-    <div><b>대화</b><small data-step="1">AI가 한다</small></div>
-    <div><b>기록</b><small data-step="1">AI가 읽었다</small></div>
-    <div class="none"><b>기억</b><small data-step="1">AI에게 없다</small></div>
+    <div><svg class="pic" aria-hidden="true"><use href="#i-chat"/></svg><b>대화</b><small data-step="1">AI가 한다</small></div>
+    <div><svg class="pic" aria-hidden="true"><use href="#i-doc"/></svg><b>기록</b><small data-step="1">AI가 읽었다</small></div>
+    <div class="none"><svg class="pic" aria-hidden="true"><use href="#i-none"/></svg><b>기억</b><small data-step="1">AI에게 없다</small></div>
   </div>
   <div class="cols" style="gap:56px">
     <div class="col grow" style="gap:26px">
@@ -770,12 +868,13 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 <section class="slide" id="s-exam" data-look="light" data-part="3부  그 내가 누구에게 가는지" data-note="3부를 여는 장. 올해 수능 수학 공통 21번을 같이 풀어 본다.
 문제 이미지는 P 창에서 넣는다. 이 노트북에만 저장되고 공개 주소에는 올라가지 않는다(휴대폰에는 ‘앞 화면을 봐 주세요’만 뜬다). 종이로 나눠 줘도 된다.
 클릭 1 — 오답률 한 줄.
-※ 오답률은 EBS 가채점 서비스 집계(11월 23일 오전 8시, 32만 9,412건)에서 공통 21번이 97.9%로 가장 높았다(베리타스알파 11월 23일). 정답은 12월 1일 오후 5시에 확정된다. 이 줄은 Claude가 붙였다.">
+※ 오답률은 EBS 가채점 서비스 집계(11월 23일 오전 8시, 32만 9,412건)에서 공통 21번이 97.9%로 가장 높았다(베리타스알파 11월 23일). 정답은 12월 1일 오후 5시에 확정된다. 이 줄은 Claude가 붙였다.
+그림(11월 26일): ‘100명 가운데 98명이 틀렸다’를 점 100개로 그렸다. 회색 98개가 틀린 사람, 검정 2개가 맞힌 사람.">
   <div class="cols" style="gap:64px;align-items:stretch">
     <div class="col" style="width:600px;flex:none;justify-content:center">
       <h2 class="t-state">올해 수능<br>수학 21번</h2>
       <p class="t-lead">같이 풀어 봅시다.</p>
-      <p class="t-small" data-step="1" style="font-size:28px">가채점 집계에서 가장 많이 틀린 문제다.<br>100명 가운데 98명이 틀렸다.<br><span style="font-size:22px">EBS 집계 오답률 97.9%, 11월 23일 오전 8시 기준</span></p>
+      <div class="hund" data-step="1"><svg viewBox="0 0 260 260" role="img" aria-label="점 100개 가운데 98개가 회색, 2개가 검정"><circle cx="13" cy="13" r="9"/><circle cx="39" cy="13" r="9"/><circle cx="65" cy="13" r="9"/><circle cx="91" cy="13" r="9"/><circle cx="117" cy="13" r="9"/><circle cx="143" cy="13" r="9"/><circle cx="169" cy="13" r="9"/><circle cx="195" cy="13" r="9"/><circle cx="221" cy="13" r="9"/><circle cx="247" cy="13" r="9"/><circle cx="13" cy="39" r="9"/><circle cx="39" cy="39" r="9"/><circle cx="65" cy="39" r="9"/><circle cx="91" cy="39" r="9"/><circle cx="117" cy="39" r="9"/><circle cx="143" cy="39" r="9"/><circle cx="169" cy="39" r="9"/><circle cx="195" cy="39" r="9"/><circle cx="221" cy="39" r="9"/><circle cx="247" cy="39" r="9"/><circle cx="13" cy="65" r="9"/><circle cx="39" cy="65" r="9"/><circle cx="65" cy="65" r="9"/><circle cx="91" cy="65" r="9"/><circle cx="117" cy="65" r="9"/><circle cx="143" cy="65" r="9"/><circle cx="169" cy="65" r="9"/><circle cx="195" cy="65" r="9"/><circle cx="221" cy="65" r="9"/><circle cx="247" cy="65" r="9"/><circle cx="13" cy="91" r="9"/><circle cx="39" cy="91" r="9"/><circle cx="65" cy="91" r="9"/><circle cx="91" cy="91" r="9"/><circle cx="117" cy="91" r="9"/><circle cx="143" cy="91" r="9"/><circle cx="169" cy="91" r="9"/><circle cx="195" cy="91" r="9"/><circle cx="221" cy="91" r="9"/><circle cx="247" cy="91" r="9"/><circle cx="13" cy="117" r="9"/><circle cx="39" cy="117" r="9"/><circle cx="65" cy="117" r="9"/><circle cx="91" cy="117" r="9"/><circle cx="117" cy="117" r="9"/><circle cx="143" cy="117" r="9"/><circle cx="169" cy="117" r="9"/><circle cx="195" cy="117" r="9"/><circle cx="221" cy="117" r="9"/><circle cx="247" cy="117" r="9"/><circle cx="13" cy="143" r="9"/><circle cx="39" cy="143" r="9"/><circle cx="65" cy="143" r="9"/><circle cx="91" cy="143" r="9"/><circle cx="117" cy="143" r="9"/><circle cx="143" cy="143" r="9"/><circle cx="169" cy="143" r="9"/><circle cx="195" cy="143" r="9"/><circle cx="221" cy="143" r="9"/><circle cx="247" cy="143" r="9"/><circle cx="13" cy="169" r="9"/><circle cx="39" cy="169" r="9"/><circle cx="65" cy="169" r="9"/><circle cx="91" cy="169" r="9"/><circle cx="117" cy="169" r="9"/><circle cx="143" cy="169" r="9"/><circle cx="169" cy="169" r="9"/><circle cx="195" cy="169" r="9"/><circle cx="221" cy="169" r="9"/><circle cx="247" cy="169" r="9"/><circle cx="13" cy="195" r="9"/><circle cx="39" cy="195" r="9"/><circle cx="65" cy="195" r="9"/><circle cx="91" cy="195" r="9"/><circle cx="117" cy="195" r="9"/><circle cx="143" cy="195" r="9"/><circle cx="169" cy="195" r="9"/><circle cx="195" cy="195" r="9"/><circle cx="221" cy="195" r="9"/><circle cx="247" cy="195" r="9"/><circle cx="13" cy="221" r="9"/><circle cx="39" cy="221" r="9"/><circle cx="65" cy="221" r="9"/><circle cx="91" cy="221" r="9"/><circle cx="117" cy="221" r="9"/><circle cx="143" cy="221" r="9"/><circle cx="169" cy="221" r="9"/><circle cx="195" cy="221" r="9"/><circle cx="221" cy="221" r="9"/><circle cx="247" cy="221" r="9"/><circle cx="13" cy="247" r="9"/><circle cx="39" cy="247" r="9"/><circle cx="65" cy="247" r="9"/><circle cx="91" cy="247" r="9"/><circle cx="117" cy="247" r="9"/><circle cx="143" cy="247" r="9"/><circle cx="169" cy="247" r="9"/><circle cx="195" cy="247" r="9"/><circle cx="221" cy="247" r="9" class="ok"/><circle cx="247" cy="247" r="9" class="ok"/></svg><p><b>100명 가운데<br>98명이 틀렸다.</b>가채점 집계에서 가장 많이 틀린 문제.<br><span>EBS 집계 오답률 97.9%, 11월 23일 오전 8시 기준</span></p></div>
     </div>
     <div class="slot" data-slot="suneung21" data-kind="image" data-label="21번 문제 이미지"></div>
   </div>
@@ -786,11 +885,13 @@ QR은 이 장에만 있다. 늦게 온 분께는 Q를 눌러 다시 띄운다.
 클릭 1 — 두 번째 기사.
 ※ 기사는 Claude가 골랐다. 제목과 날짜는 11월 24일에 원문에서 확인했다. 사진은 싣지 않고 제목과 출처만 쓴다. 다른 기사로 바꾸고 싶으면 말해 줘.
 한국일보 https://www.hankookilbo.com/news/article/A2026111609360002535
-한국경제 https://www.hankyung.com/article/2026111575491">
+한국경제 https://www.hankyung.com/article/2026111575491
+그림(11월 26일): 둘째 기사 제목이 말하는 순서를 세 칸으로 그렸다. 찍는다 → AI가 푼다 → 답이 온다. 다음 두 쪽에서 이 순서를 앞 화면에서 그대로 해 보인다. (세 낱말은 Claude가 붙였다.)">
   <h2 class="t-title">이렇게 작은 카메라</h2>
   <div class="col grow" style="gap:26px;justify-content:center">
     <div class="clip"><p class="src">한국일보</p><p class="hd">“시험 볼 때 쓰세요” 초소형 카메라·이어폰 대놓고 판매… 육안으로 식별 안 돼 규제 막막</p><p class="dt">2026년 11월 17일</p></div>
     <div class="clip" data-step="1"><p class="src">한국경제</p><p class="hd">“초소형 카메라로 문제 찍어 AI에 전송… 폰으로 답 확인 후 적었다”</p><p class="dt">2026년 11월 15일</p></div>
+    <div class="flow3" data-step="1" aria-label="찍는다, AI가 푼다, 답이 온다"><div><svg class="pic" aria-hidden="true"><use href="#i-cam"/></svg><span>찍는다</span></div><svg class="pic ar" aria-hidden="true"><use href="#i-arrow"/></svg><div><svg class="pic" aria-hidden="true"><use href="#i-ai"/></svg><span>AI가 푼다</span></div><svg class="pic ar" aria-hidden="true"><use href="#i-arrow"/></svg><div><svg class="pic" aria-hidden="true"><use href="#i-phone"/></svg><span>답이 온다</span></div></div>
   </div>
 </section>
 
@@ -827,8 +928,13 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
 <section class="slide center" id="s-cheat" data-look="light" data-part="3부  그 내가 누구에게 가는지" style="gap:48px" data-note="커닝은 잘못이다.
 클릭 1 — 그런데 커닝만 막으면 되는 문제가 아니다.
 본질이 무엇인가. 커닝만 안 하면 되는 게 아니라, 이 사회는 시험이라는 모래성 위에 구조를 올리고 있었다.">
-  <h2 class="t-state">커닝은 잘못이다.</h2>
-  <h2 class="t-state acc" data-step="1">그런데 커닝만 막으면<br>되는 문제가 아니다.</h2>
+  <div class="cols" style="gap:64px;align-items:center">
+    <div class="col grow" style="gap:48px">
+      <h2 class="t-state">커닝은 잘못이다.</h2>
+      <h2 class="t-state acc" data-step="1">그런데 커닝만 막으면<br>되는 문제가 아니다.</h2>
+    </div>
+    <svg class="pic banpic" viewBox="0 0 96 96" role="img" aria-label="카메라 금지 표지"><use href="#i-cam" x="24" y="24" width="48" height="48"/><use href="#i-ban"/></svg>
+  </div>
 </section>
 
 <!-- 25 모래성 -->
@@ -869,9 +975,11 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
 
 <!-- 27 교회가 답해야 할 물음 -->
 <section class="slide center" id="s-church" data-look="light" data-part="3부  그 내가 누구에게 가는지" style="gap:40px" data-note="하지만 교회는 답을 해야 한다. 생존의 문제가 해결되면 우리는 무엇을 해야 하는가.
-내가 내리는 답은 맨 마지막({s-end}쪽)에 그림을 놓고 말로 한다. 여기서는 물음만.">
+내가 내리는 답은 맨 마지막({s-end}쪽)에 그림을 놓고 말로 한다. 여기서는 물음만.
+그림(11월 26일): 앞 쪽 계단을 작게 다시 그렸다. 지나온 세 칸은 회색, 다음 칸만 검은 점선과 물음표. 이 쪽의 물음이 바로 그 칸이다.">
   <p class="t-lead">교회가 답해야 할 물음</p>
   <h2 class="t-state">생존의 문제가 해결되면,<br>우리는 무엇을 해야 하는가.</h2>
+  <svg class="stairq" viewBox="0 0 1664 300" role="img" aria-label="앞 쪽의 계단. 마지막 칸이 물음표다"><path class="past" d="M4 30H420V110H840V190H1260"/><path class="dash" d="M1260 190V272H1660"/><text x="1296" y="262">?</text></svg>
 </section>
 
 <!-- 28 오디세이의 나그네 -->
@@ -880,11 +988,17 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
 클릭 1 — 2부에서 활에 줄을 걸던 그 사람이다.
 오디세이의 주제가 나그네를 대접하는 것이기도 하다. 그다음에 누가복음 10장으로.
 말로 덧붙일 수 있는 것(원작): 궁전의 구혼자들은 거지를 박대하고, 가난한 돼지치기 에우마이오스가 그를 대접한다. ‘나그네와 거지는 모두 제우스가 보낸 사람’이라는 말이 그의 입에서 나온다(14권).
-※ 공식 클립을 찾지 못해 대사를 글로 띄웠다. 우리말은 Claude가 옮겼다. 극장 자막과 다르면 고쳐 줘.">
-  <p class="t-lead">거지 차림으로 돌아온 오디세우스가 먹을 것을 청하자, 안티노오스가 소리친다.</p>
-  <p class="bigq">“Somebody get these beggars out of here!”</p>
-  <p class="t-line s soft">누가 이 거지들 좀 여기서 내쫓아라!</p>
-  <p class="t-line" data-step="1" style="margin-top:20px">2부에서 활에 줄을 걸던 그 사람이, 바로 이 거지다.</p>
+※ 공식 클립을 찾지 못해 대사를 글로 띄웠다. 우리말은 Claude가 옮겼다. 극장 자막과 다르면 고쳐 줘.
+그림(11월 26일): 존 플랙스먼의 오디세이 삽화 「오디세우스와 그의 개」(저작권이 끝난 선 판화). 거지 차림으로 제 집 앞에 선 오디세우스. 사람은 아무도 그를 알아보지 못하는데, 스무 해를 기다린 늙은 개 아르고스만 주인을 알아보고 숨을 거둔다(오디세이아 17권). 개 이야기는 해도 되고 안 해도 된다.">
+  <div class="cols" style="gap:56px;align-items:center">
+    <div class="col grow" style="gap:30px">
+      <p class="t-lead">거지 차림으로 돌아온 오디세우스가 먹을 것을 청하자, 안티노오스가 소리친다.</p>
+      <p class="bigq">“Somebody get these beggars out of here!”</p>
+      <p class="t-line s soft">누가 이 거지들 좀 여기서 내쫓아라!</p>
+      <p class="t-line" data-step="1" style="margin-top:12px">2부에서 활에 줄을 걸던 그 사람이, 바로 이 거지다.</p>
+    </div>
+    <figure class="art"><img class="lineart" src="img/argos.jpg" width="1240" height="883" decoding="async" alt="지팡이를 짚고 고개를 숙인 거지 차림의 오디세우스. 발치에 늙은 개가 쓰러져 있다."><figcaption>존 플랙스먼, 「오디세우스와 그의 개」</figcaption></figure>
+  </div>
 </section>
 
 <!-- 29 누가복음 10장 -->
@@ -892,16 +1006,17 @@ API 키와 모델은 P 창에서. 키는 파일에 적히지 않고 이 브라�
 클릭 1~4 — 한 줄씩. 율법교사는 예수를 시험하려고 묻는다. 넷째 줄 뒤에 그는 자기를 옳게 보이려고 다시 묻는다.
 클릭 5 — 예수는 이야기 하나로 답하시고, 되물으신다.
 클릭 6 — 두 물음만 남는다. ‘내 이웃이 누구니이까’가 ‘누가 강도 만난 자의 이웃이 되겠느냐’로 바뀌었다. 여기서 멈춘다. ‘가서 너도 이와 같이 하라’를 앞세우지 않는다.
-(26절에서 예수가 되물으신 말이 ‘무엇이라 기록되었으며 네가 어떻게 읽느냐’다. 1부의 ‘기록’과 맞닿는다 — Claude가 본 것. 쓸지는 네가 정해.)">
+(26절에서 예수가 되물으신 말이 ‘무엇이라 기록되었으며 네가 어떻게 읽느냐’다. 1부의 ‘기록’과 맞닿는다 — Claude가 본 것. 쓸지는 네가 정해.)
+그림(11월 26일): 문답을 말풍선으로 바꿨다. 율법교사의 말은 왼쪽, 예수의 말은 오른쪽. 마지막 클릭에서 두 물음(29절, 36절)만 검게 뒤집힌다.">
   <p class="t-lead">누가복음 10장</p>
   <div class="turns">
     <div class="turn"><span class="who">율법교사<sup>25</sup></span><p>선생님 내가 무엇을 하여야 영생을 얻으리이까</p></div>
-    <div class="turn" data-step="1"><span class="who">예수<sup>26</sup></span><p>율법에 무엇이라 기록되었으며 네가 어떻게 읽느냐</p></div>
+    <div class="turn j" data-step="1"><span class="who">예수<sup>26</sup></span><p>율법에 무엇이라 기록되었으며 네가 어떻게 읽느냐</p></div>
     <div class="turn" data-step="2"><span class="who">율법교사<sup>27</sup></span><p>… 주 너의 하나님을 사랑하고 또한 네 이웃을 네 자신 같이 사랑하라 하였나이다</p></div>
-    <div class="turn" data-step="3"><span class="who">예수<sup>28</sup></span><p>네 대답이 옳도다 이를 행하라 그러면 살리라</p></div>
+    <div class="turn j" data-step="3"><span class="who">예수<sup>28</sup></span><p>네 대답이 옳도다 이를 행하라 그러면 살리라</p></div>
     <div class="turn key" data-step="4"><span class="who">율법교사<sup>29</sup></span><p>그러면 내 이웃이 누구니이까</p></div>
     <div class="turn story" data-step="5"><span class="who"><sup style="margin-left:0">30–35</sup></span><p>예수께서 이야기를 하나 하신다. 강도 만난 사람, 제사장, 레위인, 사마리아 사람.</p></div>
-    <div class="turn key" data-step="5"><span class="who">예수<sup>36</sup></span><p>네 생각에는 이 세 사람 중에 누가 강도 만난 자의 이웃이 되겠느냐</p></div>
+    <div class="turn j key" data-step="5"><span class="who">예수<sup>36</sup></span><p>네 생각에는 이 세 사람 중에 누가 강도 만난 자의 이웃이 되겠느냐</p></div>
   </div>
   <p class="t-line acc" data-step="6" style="margin-top:auto">물음이 바뀌었다.</p>
 </section>
